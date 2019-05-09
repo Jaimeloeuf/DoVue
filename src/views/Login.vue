@@ -1,6 +1,6 @@
 <template>
   <div class="login">
-    <img src="../assets/logo.png" alt="doVue logo">
+    <img src="@/assets/logo.png" alt="doVue logo">
     <h3>Sign In</h3>
     <input type="text" v-model="email" placeholder="Email" autofocus>
     <br>
@@ -9,7 +9,7 @@
     <button @click="login">Login</button>
     <p>
       Don't have an account yet? Hurry and
-      <router-link to="/sign-up">create one</router-link>now!
+      <router-link to="/sign-up">create one now!</router-link>
     </p>
   </div>
 </template>
