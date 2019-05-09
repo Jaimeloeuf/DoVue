@@ -27,11 +27,12 @@ export default {
   },
   methods: {
     login: function() {
-      firebase
-        .auth()
-        .signInWithEmailAndPassword(this.email, this.password)
-        .then(user => this.$router.replace("home"))
-        .catch(err => alert("Oops. " + err.message));
+      //   firebase
+      //     .auth()
+      //     .signInWithEmailAndPassword(this.email, this.password)
+      //     .then(user => this.$router.replace("home"))
+      //     .catch(err => alert("Oops. " + err.message));
+      this.$router.replace("notes");
     }
   }
 };
