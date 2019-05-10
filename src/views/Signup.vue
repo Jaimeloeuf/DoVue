@@ -31,7 +31,7 @@ export default {
         .auth()
         .createUserWithEmailAndPassword(this.email, this.password)
         .then(user => this.$router.replace("home"))
-        .catch(err => alert("Oops. " + err.message));
+        .catch(err => console.log(err.message));
     }
   }
 };
