@@ -57,10 +57,18 @@ router.beforeEach((to, from, next) => {
     // Check if route being navigated to needs authentication
     const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
 
-    // Call the next middleware provided by vue router with a route to go to.
-    if (requiresAuth && !currentUser) next('login');
-    // else if (!requiresAuth && currentUser) next('notes');
-    else next();
+    /* Call the next middleware provided by vue router with a route to go to. */
+
+    // If the route is auth protected and user is not logged in, redirect to login page
+    if (requiresAuth && !currentUser)
+        next('login');
+    // @TODO fix the below else if condition.
+    // If user is logged in but invalid URL used, then redirect to the notes view
+    else if (!requiresAuth && currentUser)
+        next('notes');
+    // Else, just continue navigation as per user request.
+    else
+        next();
 });
 
 

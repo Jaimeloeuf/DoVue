@@ -18,6 +18,7 @@ firebase.initializeApp({
 });
 
 // Wait for firebase to finish initialization before creating the app.
+// So that the router navigation wont break due to invalid auth
 firebase.auth().onAuthStateChanged(() => {
     new Vue({
         router,
