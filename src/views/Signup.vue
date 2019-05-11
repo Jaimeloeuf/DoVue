@@ -62,22 +62,22 @@ export default {
 
  <style scoped>
 .sign-up {
-  margin-top: 40px;
+  margin-top: 4em;
 }
 input {
-  margin: 10px 0;
+  margin: 1em 0;
   width: 20%;
-  padding: 15px;
+  padding: 1em;
 }
 button {
-  margin-top: 10px;
+  margin-top: 1em;
   width: 10%;
   cursor: pointer;
 }
 span {
   display: block;
-  margin-top: 20px;
-  font-size: 11px;
+  margin-top: 1em;
+  font-size: 1em;
 }
 .error {
   display: block;
