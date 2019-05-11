@@ -1,3 +1,8 @@
+/*  
+    @Todo
+    - Implement the error_msg box component and implement same thing into login view
+*/
+
 <template>
   <div class="sign-up">
     <img src="@/assets/logo.png" alt="doVue logo">
@@ -6,6 +11,7 @@
     <br>
     <input type="password" v-model="password" placeholder="Password">
     <br>
+    <p class="error">{{ error_msg }}</p>
     <button @click="signUp">Sign Up</button>
     <span>
       or go back to
@@ -17,12 +23,29 @@
  <script>
 import firebase from "firebase";
 
+function error_msg(err) {
+  // Function maps the given err.msg to a more user understandable message before
+  // returning the final message for displaying onto the error_msg box
+
+  // Tmp return original message
+  return err.message;
+}
+
+// Error handler function
+function error_handler(err) {
+  console.log(error_msg(err));
+
+  // Set the message into the error box to show user the error
+  this.error_msg = err.message;
+}
+
 export default {
   name: "signUp",
   data() {
     return {
       email: "",
-      password: ""
+      password: "",
+      error_msg: ""
     };
   },
   methods: {
@@ -30,8 +53,8 @@ export default {
       firebase
         .auth()
         .createUserWithEmailAndPassword(this.email, this.password)
-        .then(user => this.$router.replace("home"))
-        .catch(err => console.log(err.message));
+        .then(user => this.$router.replace("login"))
+        .catch(error_handler);
     }
   }
 };
@@ -55,5 +78,9 @@ span {
   display: block;
   margin-top: 20px;
   font-size: 11px;
+}
+.error {
+  display: block;
+  margin-top: 20px;
 }
 </style>
