@@ -1,5 +1,8 @@
 # Todo list for DoVue project
 ## High-priority  (Hotfixe issues and bug fixes needed)
+- Add in a default page to show user while the App is loading
+- Add a detector for user's internet status, pause the app when the user is offline for now before the P.W.A and local data usage system is built.
+- Create a check to "kill" the app if firebase fails to init and add a notification item to signal firebase failure
 - Fix the notes' multi router system.
 - Implement the backend service away from firebase
 
