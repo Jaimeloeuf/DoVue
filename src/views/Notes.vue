@@ -1,22 +1,40 @@
+/*
+
+    @Todo
+    - Include a check if there is any notes. If there is no notes yet include a tutorial thing to help user get started.
+*/
+
 <template>
   <div class="notes">
     <img alt="Vue logo" src="@/assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
 
     <button @click="logout">Logout</button>
+
+    <ul>
+      <li v-for="note of notes" v-bind:key="note.text">{{ note.text }}</li>
+    </ul>
   </div>
 </template>
 
 <script>
 import firebase, { functions } from "firebase";
 
-// @ is an alias to /src
 import HelloWorld from "@/components/HelloWorld.vue";
 
 export default {
   name: "notes",
-  components: {
-    HelloWorld
+  //   components: {
+  //     HelloWorld
+  //   },
+  data() {
+    return {
+      notes: [
+        { text: "Learn JavaScript" },
+        { text: "Learn Vue" },
+        { text: "Build something awesome" }
+      ]
+    };
   },
   methods: {
     logout: function() {
@@ -29,3 +47,6 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+</style>
