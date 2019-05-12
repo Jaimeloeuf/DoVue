@@ -55,10 +55,11 @@ export default {
   },
   methods: {
     signUp: function() {
+      // After signup, user will be automatically signed in, thus redirect to the notes view
       firebase
         .auth()
         .createUserWithEmailAndPassword(this.email, this.password)
-        .then(user => this.$router.replace("login"))
+        .then(user => this.$router.replace("notes"))
         .catch(error_handler);
     }
   }

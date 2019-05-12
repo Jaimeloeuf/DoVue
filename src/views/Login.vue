@@ -1,11 +1,17 @@
+/*
+    @Todo
+    - Add in browser's "required" attribute checker for input. Add it to signup view once done.
+    - Build autofocus into the template's Email input. Add it to signup view once done.
+*/
+
 <template>
   <div class="login">
     <PublicNavbar/>
     <img src="@/assets/logo.png" alt="doVue logo">
     <h3>Glad to have you back :)</h3>
-    <input type="text" v-model="email" placeholder="Email" autofocus>
+    <input type="text" v-model="email" placeholder="Email" required autofocus>
     <br>
-    <input type="password" v-model="password" placeholder="Password">
+    <input type="password" v-model="password" placeholder="Password" required>
     <br>
     <button @click="login">Login</button>
     <p>
