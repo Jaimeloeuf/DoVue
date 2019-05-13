@@ -1,13 +1,13 @@
-// LogoutBtn.vue
-
 <template>
   <button @click="logout">Logout</button>
 </template>
 
 <script>
+import firebase, { functions } from "firebase";
+
 export default {
+  name: "LogoutBtn",
   methods: {
-    name: "LogoutBtn",
     logout: function() {
       // Signout the current user and redirect to login page afterwards.
       firebase
