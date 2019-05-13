@@ -8,10 +8,9 @@
 
 <template>
   <div class="notes-view">
+    <NotesNavbar/>
     <img alt="Vue logo" src="@/assets/logo.png">
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-
-    <LogoutBtn/>
 
     <ul class="notes">
       <li class="note" v-for="note of notes" v-bind:key="note.text">{{ note.text }}</li>
@@ -20,13 +19,12 @@
 </template>
 
 <script>
-import LogoutBtn from "@/components/LogoutBtn.vue";
+import NotesNavbar from "@/components/NotesNavbar.vue";
 
 export default {
   name: "notes",
   components: {
-    //   HelloWorld
-    LogoutBtn
+    NotesNavbar
   },
   data() {
     return {
