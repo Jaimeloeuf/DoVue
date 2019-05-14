@@ -60,7 +60,7 @@ export default {
         .auth()
         .signInWithEmailAndPassword(this.email, this.password)
         .then(user => this.$router.replace("notes"))
-        .catch(err => console.log(err.message));
+        .catch(error_handler);
     }
   }
 };
