@@ -12,6 +12,9 @@
     <img alt="Vue logo" src="@/assets/logo.png">
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
 
+    <!-- @Todo Instead of using the Editor component here directly, maybe use a router-view instead -->
+    <Editor/>
+
     <ul class="notes">
       <li class="note" v-for="note of notes" v-bind:key="note.text">{{ note.text }}</li>
     </ul>
@@ -20,11 +23,13 @@
 
 <script>
 import NotesNavbar from "@/components/NotesNavbar.vue";
+import Editor from "@/components/Editor.vue";
 
 export default {
-  name: "notes",
+  name: "Notes",
   components: {
-    NotesNavbar
+    NotesNavbar,
+    Editor
   },
   data() {
     return {
