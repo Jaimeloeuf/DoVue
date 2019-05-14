@@ -13,6 +13,7 @@
     <br>
     <input type="password" v-model="password" placeholder="Password" required>
     <br>
+    <p class="error">{{ error_msg }}</p>
     <button @click="login">Login</button>
     <p>
       Don't have an account yet? Hurry and
@@ -25,6 +26,22 @@
 import firebase from "firebase";
 import PublicNavbar from "@/components/PublicNavbar.vue";
 
+function error_msg(err) {
+  // Function maps the given err.msg to a more user understandable message before
+  // returning the final message for displaying onto the error_msg box
+
+  // Tmp return original message
+  return err.message;
+}
+
+// Error handler function
+function error_handler(err) {
+  console.log(error_msg(err));
+
+  // Set the message into the error box to show user the error
+  this.error_msg = error_msg(err);
+}
+
 export default {
   name: "login",
   components: {
@@ -33,7 +50,8 @@ export default {
   data() {
     return {
       email: "",
-      password: ""
+      password: "",
+      error_msg: ""
     };
   },
   methods: {

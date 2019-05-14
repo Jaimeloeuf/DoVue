@@ -38,7 +38,7 @@ function error_handler(err) {
   console.log(error_msg(err));
 
   // Set the message into the error box to show user the error
-  this.error_msg = err.message;
+  this.error_msg = error_msg(err);
 }
 
 export default {
