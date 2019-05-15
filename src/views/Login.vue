@@ -9,7 +9,7 @@
     <PublicNavbar/>
     <img src="@/assets/logo.png" alt="doVue logo">
     <h3>Glad to have you back :)</h3>
-    <input type="text" v-model="email" placeholder="Email" required autofocus>
+    <input v-autofocus type="text" v-model="email" placeholder="Email" required autofocus>
     <br>
     <input type="password" v-model="password" placeholder="Password" required>
     <br>
@@ -59,7 +59,8 @@ export default {
       firebase
         .auth()
         .signInWithEmailAndPassword(this.email, this.password)
-        .then(user => this.$router.replace("notes"))
+        // .then(user => this.$router.replace("notes"))
+        .then(() => this.$router.replace("notes"))
         .catch(error_handler);
     }
   }

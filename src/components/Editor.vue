@@ -2,8 +2,7 @@
   <div class="editor">
     <input type="text" v-model="title" placeholder="Title">
     <br>
-    <!-- @Todo Implement autofocus -->
-    <input type="text" v-model="note" autofocus>
+    <input v-autofocus type="text" v-model="note">
     <br>
 
     <!-- @Todo Create a new editor bar component -->

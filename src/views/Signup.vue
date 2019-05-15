@@ -8,7 +8,7 @@
     <PublicNavbar/>
     <img src="@/assets/logo.png" alt="doVue logo">
     <h3>Let's create a new account!</h3>
-    <input type="text" v-model="email" placeholder="Email">
+    <input v-autofocus type="text" v-model="email" placeholder="Email">
     <br>
     <input type="password" v-model="password" placeholder="Password">
     <br>

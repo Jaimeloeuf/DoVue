@@ -6,6 +6,15 @@ import store from './store'
 
 Vue.config.productionTip = false
 
+// Register global custom directive called `v-autofocus`
+Vue.directive('autofocus', {
+    // When the bound element is inserted into the DOM...
+    inserted(element) {
+        element.focus(); // Focus the element
+    }
+});
+
+
 // firebaseConfig auto generated in project settings
 firebase.initializeApp({
     apiKey: "AIzaSyBLNzTnm890qIYStxM5_nljMh3CoxkVyDk",
@@ -16,6 +25,7 @@ firebase.initializeApp({
     messagingSenderId: "9521872878",
     appId: "1:9521872878:web:e90626e43f23617a"
 });
+
 
 // Wait for firebase to finish initialization before creating the app.
 // So that the router navigation wont break due to invalid auth
