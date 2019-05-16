@@ -16,7 +16,7 @@
     <Editor/>
 
     <ul class="notes">
-      <li class="note" v-for="note of notes" v-bind:key="note.text">{{ note.text }}</li>
+      <li v-for="note of notes" v-bind:key="note.id" @click="openNote">{{ note.text }}</li>
     </ul>
   </div>
 </template>
@@ -34,13 +34,17 @@ export default {
   data() {
     return {
       notes: [
-        { text: "Learn JavaScript" },
-        { text: "Learn Vue" },
-        { text: "Build something awesome" }
+        { id: 1, text: "Learn JavaScript" },
+        { id: 2, text: "Learn Vue" },
+        { id: 3, text: "Build something awesome" }
       ]
     };
   },
-  methods: {}
+  methods: {
+    openNote() {
+      
+    }
+  }
 };
 </script>
 
@@ -49,7 +53,9 @@ export default {
   margin-top: 4em;
 }
 .notes {
+  list-style-type: none;
 }
-.note {
+.notes li {
+  cursor: pointer;
 }
 </style>
