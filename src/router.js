@@ -5,6 +5,8 @@ import firebase from 'firebase';
 import Notes from './views/Notes.vue';
 import Login from './views/Login.vue';
 import Signup from './views/Signup.vue';
+import Help from './views/Help.vue';
+import Contact from './views/Contact.vue';
 
 Vue.use(Router);
 
@@ -13,12 +15,12 @@ const router = new Router({
         {
             // Redirect any unknown routes to the login view
             path: '*',
-            redirect: '/login'
+            redirect: '/about'
         },
         {
             // Set login view as the default view
             path: '/',
-            redirect: '/login'
+            redirect: '/about'
         },
         {
             path: '/notes',
@@ -46,6 +48,16 @@ const router = new Router({
             path: '/sign-up',
             name: 'signup',
             component: Signup
+        },
+        {
+            path: '/help',
+            name: 'help',
+            component: Help
+        },
+        {
+            path: '/contact',
+            name: 'contact',
+            component: Contact
         }
     ]
 });
@@ -63,9 +75,8 @@ router.beforeEach((to, from, next) => {
     if (requiresAuth && !currentUser)
         next('login');
     // @TODO fix the below else if condition.
-    // If user is logged in but invalid URL used, then redirect to the notes view
-    else if (!requiresAuth && currentUser)
-        next('notes');
+    // else if (!requiresAuth && currentUser)
+    //     next('notes');
     // Else, just continue navigation as per user request.
     else
         next();
