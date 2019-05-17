@@ -4,14 +4,12 @@
 */
 
 <template>
-  <div class="search">
-    <input type="text" v-model="title" placeholder="Title">
+  <span class="search">
+    <input type="text" v-model="search_string" placeholder="Search">
     <!-- @Todo Create a new search bar component -->
-    <!-- @Todo Move Close button right beside the search box -->
-    <button @click="close">Close</button>
-    <br>
-    <!-- search results, displayed through direct data placement or through router view? -->
-  </div>
+    <!-- @Todo Create condition for displaying close button. Only appear when there is search results -->
+    <button v-if="false" @click="close">Close</button>
+  </span>
 </template>
 
 <script>
@@ -31,5 +29,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.search {
+}
 </style>
