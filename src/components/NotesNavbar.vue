@@ -5,19 +5,24 @@
 
 <template>
   <div id="nav">
+    <!-- @Todo Make the logo smaller -->
+    <img alt="Vue logo" src="@/assets/logo.png">
     <router-link to="/about">About</router-link>&nbsp;|
     <router-link to="/help">Help</router-link>&nbsp;|
     <LogoutBtn/>
+    <SearchBox/>
   </div>
 </template>
 
 <script>
 import LogoutBtn from "@/components/LogoutBtn.vue";
+import SearchBox from "@/components/SearchBox.vue";
 
 export default {
   name: "NotesNavbar",
   components: {
-      LogoutBtn
+    LogoutBtn,
+    SearchBox
   }
 };
 </script>
