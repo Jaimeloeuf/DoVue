@@ -8,27 +8,33 @@
 
 <template>
   <div class="notes-view">
-    <NotesNavbar/>
-    <img alt="Vue logo" src="@/assets/logo.png">
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
 
-    <!-- @Todo Instead of using the Editor component here directly, maybe use a router-view instead -->
-    <Editor/>
+    <!-- Router view for notes editor -->
+    <router-view/>
 
-    <ul class="notes">
+    <!-- Router view for Either All the notes or for Search results -->
+    <!-- <router-view/> -->
+
+    <!-- Maybe shouldnt do that. Notes view for all the notes.
+        Then search view for all the search results
+        
+    Then the common nav bar will be in the app vue and will change based on auth status.-->
+
+    <!-- Only display if there is more than one note -->
+    <ul v-if="notes.length" class="notes">
       <li v-for="note of notes" v-bind:key="note.id" @click="openNote">{{ note.text }}</li>
     </ul>
+    <p v-else>Nothing left in the list. Add a new todo in the input above.</p>
   </div>
 </template>
 
 <script>
-import NotesNavbar from "@/components/NotesNavbar.vue";
 import Editor from "@/components/Editor.vue";
 
 export default {
   name: "Notes",
   components: {
-    NotesNavbar,
     Editor
   },
   data() {
@@ -41,9 +47,7 @@ export default {
     };
   },
   methods: {
-    openNote() {
-      
-    }
+    openNote() {}
   }
 };
 </script>

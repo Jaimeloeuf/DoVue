@@ -12,6 +12,7 @@ import Contact from './views/Contact.vue';
 
 // Import the other components
 import PublicNavbar from './components/PublicNavbar.vue';
+import NotesNavbar from './components/NotesNavbar.vue';
 import Editor from './components/Editor.vue';
 
 Vue.use(Router);
@@ -31,18 +32,14 @@ const router = new Router({
         {
             path: '/notes',
             name: 'notes',
-            component: Notes,
+            components: {
+                default: Notes,
+                navbar: NotesNavbar
+            },
             meta: {
                 // The notes app is only available after authentication
                 requiresAuth: true
-            }/* ,
-            children: [{
-                    path: '', redirect: '/'
-                }, {
-                    path: '/', component: AllNotes // ? AllNotes correct?
-                }, {
-                path: '/:id', component: Editor
-            }] */
+            }
         },
         {
             path: '/about',

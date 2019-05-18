@@ -5,11 +5,18 @@
 
 <template>
   <div id="nav">
-    <img src="@/assets/logo.png" alt="DoVue logo">
-    <router-link to="/about">About</router-link>&nbsp;|
-    <router-link to="/help">Help</router-link>&nbsp;|
-    <LogoutBtn/>
+    <a href="/#/about">
+      <img src="@/assets/logo.png" alt="DoVue logo">
+    </a>
+    <router-link to="/notes">Notes</router-link>&nbsp;|
     <SearchBox/>
+
+    <div class="float-right">
+      <LogoutBtn/>&nbsp;|
+      <router-link to="/help">Help</router-link>&nbsp;|
+      <router-link to="/about">About</router-link>&nbsp;|
+    </div>
+    <hr>
   </div>
 </template>
 
@@ -28,7 +35,9 @@ export default {
 
 <style scoped>
 #nav {
-  padding: 2em;
+  margin: 1em;
+  margin-top: 0em;
+  text-align: left;
 }
 
 img {
@@ -43,6 +52,11 @@ img {
 }
 
 #nav a.router-link-exact-active {
-  color: #42b983;
+  color: #018e2b;
+}
+
+.float-right {
+    display: inline;
+    float: right;
 }
 </style>
