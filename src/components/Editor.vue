@@ -7,8 +7,6 @@
 
     <!-- @Todo Create a new editor bar component -->
     <button @click="close">Close</button>
-
-    <p>Hello</p>
   </div>
 </template>
 
@@ -16,6 +14,12 @@
 export default {
   name: "Editor",
 //   props: {},
+
+/*
+    Look at the router file.
+    Open the note based on the note id in the route params
+*/
+
   data() {
     return {
       title: "test",

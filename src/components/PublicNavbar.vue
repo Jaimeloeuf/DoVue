@@ -7,6 +7,8 @@
     <router-link to="/about">About</router-link>&nbsp;|
     <router-link to="/login">Login</router-link>&nbsp;|
     <router-link to="/sign-up">Signup</router-link>
+    <br>
+    <img src="@/assets/logo.png" alt="DoVue logo">
   </div>
 </template>
 
