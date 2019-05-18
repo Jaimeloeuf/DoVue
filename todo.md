@@ -10,7 +10,6 @@
 - Move custom directives into a folder and import them instead, once there a few custom directives
 - Create a check to "kill" the app if firebase fails to init and add a notification item to signal firebase failure
 - Fix the notes' multi router system.
-- Fix issue, where switching quickly between Signup and Login, logo keeps flashing due to constant re render despite being the same logo. Fix it by either doing component reuse, remove it or replace it with a smaller one.
 - Change the margin of the inputs for signup and login, so that they scale better
 
 ## Low-priority  (Future features)

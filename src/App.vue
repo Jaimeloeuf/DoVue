@@ -1,5 +1,9 @@
 <template>
   <div id="app">
+    <!-- First router view is for the navigation bar -->
+    <router-view name="navbar"/>
+
+    <!-- Router view for the main view -->
     <router-view/>
   </div>
 </template>

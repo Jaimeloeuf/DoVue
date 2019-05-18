@@ -2,11 +2,17 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import firebase from 'firebase';
 
-import Notes from './views/Notes.vue';
+// Import all the view components
+import About from './views/About.vue';
 import Login from './views/Login.vue';
 import Signup from './views/Signup.vue';
+import Notes from './views/Notes.vue';
 import Help from './views/Help.vue';
 import Contact from './views/Contact.vue';
+
+// Import the other components
+import PublicNavbar from './components/PublicNavbar.vue';
+import Editor from './components/Editor.vue';
 
 Vue.use(Router);
 
@@ -29,25 +35,39 @@ const router = new Router({
             meta: {
                 // The notes app is only available after authentication
                 requiresAuth: true
-            }
+            }/* ,
+            children: [{
+                    path: '', redirect: '/'
+                }, {
+                    path: '/', component: AllNotes // ? AllNotes correct?
+                }, {
+                path: '/:id', component: Editor
+            }] */
         },
         {
             path: '/about',
             name: 'about',
-            // route level code-splitting
-            // this generates a separate chunk (about.[hash].js) for this route
-            // which is lazy-loaded when the route is visited.
-            component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
+            components: {
+                default: About,
+                navbar: PublicNavbar
+            }
         },
         {
             path: '/login',
             name: 'login',
-            component: Login
+            // component: Login
+            components: {
+                default: Login,
+                navbar: PublicNavbar
+            }
         },
         {
             path: '/sign-up',
             name: 'signup',
-            component: Signup
+            components: {
+                default: Signup,
+                navbar: PublicNavbar
+            }
         },
         {
             path: '/help',

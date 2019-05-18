@@ -1,6 +1,5 @@
 <template>
   <div class="about">
-    <PublicNavbar/>
     <h1>This is DoVue</h1>
     <h3 class="slogan">Simple, Reliable, Beautiful</h3>
     <img src="@/assets/logo.png" alt="doVue logo">
@@ -18,13 +17,8 @@
 
 
 <script>
-import PublicNavbar from "@/components/PublicNavbar.vue";
-
 export default {
-  name: "about",
-  components: {
-    PublicNavbar
-  }
+  name: "about"
 };
 </script>
 

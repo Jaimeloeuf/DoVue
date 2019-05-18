@@ -5,8 +5,6 @@
 
 <template>
   <div class="sign-up">
-    <PublicNavbar/>
-    <img src="@/assets/logo.png" alt="doVue logo">
     <h3>Let's create a new account!</h3>
     <input v-autofocus type="text" v-model="email" placeholder="Email">
     <br>
@@ -23,7 +21,6 @@
 
  <script>
 import firebase from "firebase";
-import PublicNavbar from "@/components/PublicNavbar.vue";
 
 function error_msg(err) {
   // Function maps the given err.msg to a more user understandable message before
@@ -43,9 +40,6 @@ function error_handler(err) {
 
 export default {
   name: "signUp",
-  components: {
-    PublicNavbar
-  },
   data() {
     return {
       email: "",
