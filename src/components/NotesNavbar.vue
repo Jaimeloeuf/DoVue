@@ -5,7 +5,7 @@
 
 <template>
   <div id="nav">
-    <a href="/#/about">
+    <a href="/#/notes">
       <img src="@/assets/logo.png" alt="DoVue logo">
     </a>
     <router-link to="/notes">Notes</router-link>&nbsp;|
@@ -14,7 +14,7 @@
     <div class="float-right">
       <LogoutBtn/>&nbsp;|
       <router-link to="/help">Help</router-link>&nbsp;|
-      <router-link to="/about">About</router-link>&nbsp;|
+      <router-link to="/about">About</router-link>
     </div>
     <hr>
   </div>
