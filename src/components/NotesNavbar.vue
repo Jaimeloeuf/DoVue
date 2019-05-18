@@ -5,8 +5,7 @@
 
 <template>
   <div id="nav">
-    <!-- @Todo Make the logo smaller -->
-    <img alt="Vue logo" src="@/assets/logo.png">
+    <img src="@/assets/logo.png" alt="DoVue logo">
     <router-link to="/about">About</router-link>&nbsp;|
     <router-link to="/help">Help</router-link>&nbsp;|
     <LogoutBtn/>
@@ -29,7 +28,12 @@ export default {
 
 <style scoped>
 #nav {
-  padding: 30px;
+  padding: 2em;
+}
+
+img {
+  max-width: 0.9em;
+  margin-right: 1em;
 }
 
 #nav a {
