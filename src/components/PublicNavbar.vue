@@ -4,11 +4,11 @@
 
 <template>
   <div id="nav">
+    <img src="@/assets/logo.png" alt="DoVue logo">
     <router-link to="/about">About</router-link>&nbsp;|
     <router-link to="/login">Login</router-link>&nbsp;|
     <router-link to="/sign-up">Signup</router-link>
     <br>
-    <img src="@/assets/logo.png" alt="DoVue logo">
   </div>
 </template>
 
@@ -21,6 +21,11 @@ export default {
 <style scoped>
 #nav {
   padding: 30px;
+}
+
+img {
+    max-width: 0.9em;
+    margin-right: 1em;
 }
 
 #nav a {
