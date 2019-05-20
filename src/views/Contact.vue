@@ -10,13 +10,8 @@
 
 
 <script>
-import PublicNavbar from "@/components/PublicNavbar.vue";
-
 export default {
-  name: "contact",
-  components: {
-    PublicNavbar
-  }
+  name: "contact"
 };
 </script>
 
