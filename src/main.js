@@ -6,6 +6,7 @@ import store from './store';
 
 // Import other dependencies
 import VModal from 'vue-js-modal';
+import autofocus from './directives/autofocus';
 
 // Register the VModal component for other components to use.
 Vue.use(VModal);
@@ -13,12 +14,7 @@ Vue.use(VModal);
 Vue.config.productionTip = false
 
 // Register global custom directive called `v-autofocus`
-Vue.directive('autofocus', {
-    // When the bound element is inserted into the DOM...
-    inserted(element) {
-        element.focus(); // Focus the element
-    }
-});
+Vue.directive('autofocus', autofocus);
 
 
 // firebaseConfig auto generated in project settings
