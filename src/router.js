@@ -16,8 +16,8 @@ import Help from './views/Help.vue';
 import Contact from './views/Contact.vue';
 
 // Import the other components
-import PublicNavbar from './components/PublicNavbar.vue';
-import NotesNavbar from './components/NotesNavbar.vue';
+import PublicNavbar from './components/NavBars/PublicNavbar.vue';
+import NotesNavbar from './components/NavBars/NotesNavbar.vue';
 import Editor from './components/Editor.vue';
 
 
@@ -41,6 +41,8 @@ const AuthType = Object.freeze({
 const router = new Router({
     routes: [
         {
+            // @TODO change redirect to a 404 page if user is not logged in.
+            // @TODO change redirect to the All notes view if user is logged in
             // Redirect any unknown routes to the login view
             path: '*',
             redirect: '/about'
@@ -59,7 +61,14 @@ const router = new Router({
             },
             meta: {
                 Auth_requirements: AuthType.private
-            }
+            },
+            children: [/* {
+                path: '', redirect: '/'
+            }, {
+                path: '/', component: AllNotes // ? AllNotes correct?
+            }, {
+                path: '/:id', component: Editor
+            } */]
         },
         {
             path: '/about',
