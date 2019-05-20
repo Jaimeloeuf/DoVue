@@ -1,8 +1,14 @@
-import Vue from 'vue'
-import App from './App.vue'
+import Vue from 'vue';
+import App from './App.vue';
 import firebase from 'firebase';
-import router from './router'
-import store from './store'
+import router from './router';
+import store from './store';
+
+// Import other dependencies
+import VModal from 'vue-js-modal';
+
+// Register the VModal component for other components to use.
+Vue.use(VModal);
 
 Vue.config.productionTip = false
 
