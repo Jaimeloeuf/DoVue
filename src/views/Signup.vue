@@ -1,6 +1,5 @@
 /*  
     @Todo
-    - Implement the error_msg box component and implement same thing into login view
 */
 
 <template>
@@ -9,7 +8,6 @@
     <input v-autofocus type="text" v-model="email" placeholder="Email">
     <br>
     <input type="password" v-model="password" placeholder="Password">
-    <br>
     <p class="error">{{ error_msg }}</p>
     <button @click="signUp">Sign Up</button>
     <span>
@@ -22,20 +20,17 @@
  <script>
 import firebase from "firebase";
 
+// Function to map and return a given err.code to a user friendly message
 function error_msg(err) {
-  // Function maps the given err.msg to a more user understandable message before
-  // returning the final message for displaying onto the error_msg box
+  switch (err.code) {
+    case "auth/wrong-password":
+      return "Invalid password or email.";
+    case "auth/email-already-in-use":
+        return "Email already in use, please log in instead. Reset password if you have forgotten it."
 
-  // Tmp return original message
-  return err.message;
-}
-
-// Error handler function
-function error_handler(err) {
-  console.log(error_msg(err));
-
-  // Set the message into the error box to show user the error
-  this.error_msg = error_msg(err);
+    default:
+      return "Ugh, something went wrong! Try again please?";
+  }
 }
 
 export default {
@@ -54,7 +49,13 @@ export default {
         .auth()
         .createUserWithEmailAndPassword(this.email, this.password)
         .then(user => this.$router.replace("notes"))
-        .catch(error_handler);
+        .catch(err => {
+          // @Debug Log the full error message from firebase for debug purposes only
+          console.log(err.message);
+
+          // Set the message into the error box to show user the error
+          this.error_msg = error_msg(err);
+        });
     }
   }
 };
@@ -64,23 +65,26 @@ export default {
 .sign-up {
   margin-top: 4em;
 }
+
 input {
   margin: 1em 0;
   width: 20%;
   padding: 1em;
 }
+
 button {
   margin-top: 1em;
   width: 10%;
   cursor: pointer;
 }
+
+.error {
+  margin-top: 1em;
+}
+
 span {
   display: block;
   margin-top: 1em;
   font-size: 1em;
-}
-.error {
-  display: block;
-  margin-top: 20px;
 }
 </style>
