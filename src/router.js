@@ -14,11 +14,12 @@ import Signup from './views/Signup.vue';
 import Notes from './views/Notes.vue';
 import Help from './views/Help.vue';
 import Contact from './views/Contact.vue';
+import Settings from './views/Settings.vue';
 
 // Import the other components
 import PublicNavbar from './components/NavBars/PublicNavbar.vue';
 import NotesNavbar from './components/NavBars/NotesNavbar.vue';
-import Editor from './components/Editor.vue';
+// import Editor from './components/Editor.vue';
 
 
 // Register the Router components for other components to use.
@@ -112,52 +113,51 @@ const router = new Router({
         {
             path: '/contact',
             name: 'contact',
-            component: Contact
+            components: {
+                default: Contact,
+                navbar: PublicNavbar
+            },
+            meta: {
+                Auth_requirements: AuthType.public_only
+            }
+        },
+        {
+            path: '/settings',
+            name: 'settings',
+            components: {
+                default: Settings,
+                navbar: NotesNavbar
+            },
+            meta: {
+                Auth_requirements: AuthType.private
+            }
         }
     ]
 });
 
-// Middleware that runs when a navigation is made and before the actual navigation.
-router.beforeEach((to, from, next) => {
-    // // Get the current user from firebase
-    // const currentUser = firebase.auth().currentUser;
-    // // Check if route being navigated to needs authentication
-    // const Auth_requirements = to.matched.some(record => record.meta.Auth_requirements);
 
-    // /* Call the next middleware provided by vue router with a route to go to. */
+// Function that returns an object with bool values of auth status.
+function auth(route) {
+    // Get auth requirements from first route object that matches with route navigated to
+    const { Auth_requirements } = route.matched[0].meta;
 
-    // // If the route is auth protected and user is not logged in, redirect to login page
-    // if (Auth_requirements && !currentUser)
-    //     next('login');
-    // // @TODO fix the below else if condition.
-    // // else if (!requiresAuth && currentUser)
-    // //     next('notes');
-    // // Else, just continue navigation as per user request.
-    // else
-    //     next();
+    return {
+        public: Auth_requirements === AuthType.public,
+        public_only: Auth_requirements === AuthType.public_only,
+        private: Auth_requirements === AuthType.private
+    };
+}
 
 
+// Checks if user's current auth status matches required auth status for the route being accessed
+function AuthChecker (to, from, next) {
     // Get the current user from firebase
     const currentUser = firebase.auth().currentUser;
 
-    // Function that returns an object with bool values of auth status.
-    function auth(route) {
-        // Get auth requirements from first route object that matches with route navigated to
-        const { Auth_requirements } = route.matched[0].meta;
-
-        return {
-            public: Auth_requirements === AuthType.public,
-            public_only: Auth_requirements === AuthType.public_only,
-            private: Auth_requirements === AuthType.private
-        };
-    }
-
-
-
-    /* Call the next middleware provided by vue router with a route to go to. */
-
+    // Get the AuthStatus required for accessing the route.
     const AuthType_required_is = auth(to);
 
+    /* Call the next middleware provided by vue router with a route to go to. */
     // If the route is auth protected and user is not logged in, redirect to login page
     if (AuthType_required_is.private && !currentUser)
         next('login');
@@ -167,7 +167,11 @@ router.beforeEach((to, from, next) => {
     // Else, just continue navigation as per user request.
     else
         next();
-});
+}
+
+
+// Attach AuthChecker Middleware to run when navigation is made but before actual navigation.
+router.beforeEach(AuthChecker);
 
 
 export default router;
