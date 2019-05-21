@@ -19,6 +19,8 @@
       <button @click="$modal.show('AboutModal')">About</button>&nbsp;|
       <!-- Modal Component to show and hide the "About page" -->
       <AboutModal/>
+      <button @click="$modal.show('contact')">Contact Us</button>&nbsp;|
+      <ContactModal/>
       <LogoutBtn/>
     </div>
     <hr>
@@ -29,21 +31,21 @@
 import LogoutBtn from "@/components/LogoutBtn.vue";
 import SearchBox from "@/components/SearchBox.vue";
 import AboutModal from "@/components/AboutModal.vue";
+import ContactModal from '@/components/ContactModal.vue';
 
 export default {
   name: "NotesNavbar",
   components: {
     LogoutBtn,
     SearchBox,
-    AboutModal
+    AboutModal,
+    ContactModal
   }
 };
 </script>
 
 <style scoped>
 #nav {
-  margin: 1em;
-  margin-top: 0em;
   text-align: left;
 }
 
