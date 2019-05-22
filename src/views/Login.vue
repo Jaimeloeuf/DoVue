@@ -1,6 +1,7 @@
 /*
     @Todo
     - Add in browser's "required" attribute checker for input. Add it to signup view once done.
+    - Apply the above directive to the contact view and contact modal too once done
 */
 
 <template>

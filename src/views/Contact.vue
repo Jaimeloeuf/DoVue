@@ -12,6 +12,7 @@
     </a>
     <h1>DoVue</h1>
     <h3 class="slogan">Simple, Reliable, Beautiful</h3>
+    <p>Hey there, enter your contact details and any other details or feedback you would like to give us, before we are able to reach out to you!</p>
     <input v-autofocus type="text" v-model="name" placeholder="Name">
     <br>
     <input type="text" v-model="email" placeholder="Email">
