@@ -15,11 +15,12 @@
     <SearchBox/>
 
     <div class="float-right">
-      <router-link to="/help">Help</router-link>&nbsp;|
+      <router-link :to="{name: 'help-modal'}">Help</router-link>&nbsp;|
 
       <router-link :to="{name: 'about-modal'}">About</router-link>&nbsp;|
 
-      <button @click="$modal.show('contact')">Contact Us</button>&nbsp;|
+      <router-link :to="{name: 'contact-modal'}">Contact Us</router-link>&nbsp;|
+
       <ContactModal/>
       <LogoutBtn/>
     </div>
