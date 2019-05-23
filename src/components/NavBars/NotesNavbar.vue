@@ -16,12 +16,8 @@
 
     <div class="float-right">
       <router-link :to="{name: 'help-modal'}">Help</router-link>&nbsp;|
-
       <router-link :to="{name: 'about-modal'}">About</router-link>&nbsp;|
-
       <router-link :to="{name: 'contact-modal'}">Contact Us</router-link>&nbsp;|
-
-      <ContactModal/>
       <LogoutBtn/>
     </div>
     <hr>
@@ -31,14 +27,12 @@
 <script>
 import LogoutBtn from "@/components/LogoutBtn.vue";
 import SearchBox from "@/components/SearchBox.vue";
-import ContactModal from "@/components/ContactModal.vue";
 
 export default {
   name: "NotesNavbar",
   components: {
-    LogoutBtn,
     SearchBox,
-    ContactModal,
+    LogoutBtn
   }
 };
 </script>
