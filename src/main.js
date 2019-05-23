@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import App from './App.vue';
 import firebase from 'firebase';
-import router from './router';
+import router from './routes/router';
 import store from './store';
 
 // Import other dependencies
