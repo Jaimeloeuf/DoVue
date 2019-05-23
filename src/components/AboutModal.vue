@@ -6,7 +6,15 @@
 */
 
 <template>
-  <modal name="AboutModal" :adaptive="true" :max-width="1000" width="80%" height="50%">
+  <modal
+    name="AboutModal"
+    :adaptive="true"
+    :max-width="1000"
+    width="80%"
+    height="50%"
+    @before-open="beforeopen"
+    @before-close="beforeclose"
+  >
     <div class="about">
       <div class="left">
         <h1 style="color: #004f12;">This is DoVue</h1>
@@ -26,7 +34,19 @@
 
 <script>
 export default {
-  name: "AboutModal"
+  name: "AboutModal",
+  mounted() {
+    //   Show the modal once it is mounted onto the app
+    this.$modal.show("AboutModal");
+  },
+  methods: {
+    beforeopen() {
+      console.log("beofre open");
+    },
+    beforeclose() {
+      this.$router.replace({ name: "notes" });
+    }
+  }
 };
 </script>
 

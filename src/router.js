@@ -20,6 +20,7 @@ import Settings from './views/Settings.vue';
 import PublicNavbar from './components/NavBars/PublicNavbar.vue';
 import NotesNavbar from './components/NavBars/NotesNavbar.vue';
 // import Editor from './components/Editor.vue';
+import AboutModal from './components/AboutModal.vue';
 
 
 // Register the Router components for other components to use.
@@ -63,13 +64,20 @@ const router = new Router({
             meta: {
                 Auth_requirements: AuthType.private
             },
-            children: [/* {
+            /* children: [{
                 path: '', redirect: '/'
             }, {
                 path: '/', component: AllNotes // ? AllNotes correct?
             }, {
                 path: '/:id', component: Editor
-            } */]
+            }] */
+            children: [{
+                path: 'about',
+                name: 'about-modal',
+                components: {
+                    modal: AboutModal
+                }
+            }]
         },
         {
             path: '/about',
@@ -79,7 +87,7 @@ const router = new Router({
                 navbar: PublicNavbar
             },
             meta: {
-                Auth_requirements: AuthType.public
+                Auth_requirements: AuthType.public_only
             }
         },
         {
@@ -150,7 +158,7 @@ function auth(route) {
 
 
 // Checks if user's current auth status matches required auth status for the route being accessed
-function AuthChecker (to, from, next) {
+function AuthChecker(to, from, next) {
     // Get the current user from firebase
     const currentUser = firebase.auth().currentUser;
 

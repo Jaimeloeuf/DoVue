@@ -16,9 +16,9 @@
 
     <div class="float-right">
       <router-link to="/help">Help</router-link>&nbsp;|
-      <button @click="$modal.show('AboutModal')">About</button>&nbsp;|
-      <!-- Modal Component to show and hide the "About page" -->
-      <AboutModal/>
+
+      <router-link :to="{name: 'about-modal'}">About</router-link>&nbsp;|
+
       <button @click="$modal.show('contact')">Contact Us</button>&nbsp;|
       <ContactModal/>
       <LogoutBtn/>
@@ -30,16 +30,14 @@
 <script>
 import LogoutBtn from "@/components/LogoutBtn.vue";
 import SearchBox from "@/components/SearchBox.vue";
-import AboutModal from "@/components/AboutModal.vue";
-import ContactModal from '@/components/ContactModal.vue';
+import ContactModal from "@/components/ContactModal.vue";
 
 export default {
   name: "NotesNavbar",
   components: {
     LogoutBtn,
     SearchBox,
-    AboutModal,
-    ContactModal
+    ContactModal,
   }
 };
 </script>
