@@ -1,4 +1,6 @@
 /*  @Doc
+    This is the User view, which is the one the user is presented with upon logging in.
+    It is a enclosing view, meaning that it encloses other views that the user is able to access.
 
     @Todo
 */
