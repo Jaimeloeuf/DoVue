@@ -41,10 +41,13 @@ export default {
   },
   methods: {
     beforeopen() {
-      console.log("beofre open");
+      console.log("before open");
     },
     beforeclose() {
-      this.$router.replace({ name: "notes" });
+      // Close modal and go back to previously show page
+      if (window.history.length > 1) this.$router.go(-1);
+      // Show the default notes/all page if there is no previous view
+      else this.$router.replace({ name: "all-notes" });
     }
   }
 };

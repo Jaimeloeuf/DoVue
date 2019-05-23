@@ -11,7 +11,7 @@
     <a href="/#/notes">
       <img src="@/assets/logo.png" alt="DoVue logo">
     </a>
-    <router-link to="/notes">Notes</router-link>&nbsp;|
+    <router-link :to="{name: 'all-notes'}">Notes</router-link>&nbsp;|
     <SearchBox/>
 
     <div class="float-right">

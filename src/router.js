@@ -21,6 +21,8 @@ import PublicNavbar from './components/NavBars/PublicNavbar.vue';
 import NotesNavbar from './components/NavBars/NotesNavbar.vue';
 // import Editor from './components/Editor.vue';
 import AboutModal from './components/AboutModal.vue';
+import HelpModal from './components/Modals/HelpModal.vue';
+import All from './views/NoteViews/all.vue';
 
 
 // Register the Router components for other components to use.
@@ -64,21 +66,38 @@ const router = new Router({
             meta: {
                 Auth_requirements: AuthType.private
             },
-            /* children: [{
-                path: '', redirect: '/'
-            }, {
-                path: '/', component: AllNotes // ? AllNotes correct?
-            }, {
-                path: '/:id', component: Editor
-            }] */
+            // children: [ , {
+            //     path: '/:id', component: Editor
+            // }]
             children: [{
+                path: '',
+                redirect: 'all'
+            }, {
+                path: 'all',
+                name: 'all-notes',
+                component: All // View component for all notes
+            }, {
                 path: 'about',
                 name: 'about-modal',
                 components: {
                     modal: AboutModal
                 }
+            }, {
+                path: 'help',
+                name: 'help-modal',
+                components: {
+                    modal: HelpModal
+                }
             }]
         },
+        // {
+        //     path: '/about',
+        //     name: 'about',
+        //     // route level code-splitting
+        //     // this generates a separate chunk (about.[hash].js) for this route
+        //     // which is lazy-loaded when the route is visited.
+        //     component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
+        // },
         {
             path: '/about',
             name: 'about',
