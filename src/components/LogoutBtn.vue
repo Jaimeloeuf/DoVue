@@ -13,7 +13,7 @@ export default {
       firebase
         .auth()
         .signOut()
-        .then(() => this.$router.replace("login"));
+        .then(() => this.$router.replace({ name: "login" }));
     }
   }
 };
