@@ -1,28 +1,15 @@
 <template>
-  <div>
-    <h2>Modal Example</h2>
-
-    <!-- Trigger/Open The Modal -->
-    <button id="trigger">Open Modal</button>
-
-    <!-- The Modal -->
-    <div id="modal" class="modal">
-      <!-- Modal content -->
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <p>Some text in the Modal..</p>
-      </div>
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <!-- Modal content will be injected into slots component -->
+      <slot></slot>
     </div>
   </div>
 </template>
 
 <script>
-import modal from "@/components/modal.vue";
-
 export default {
-  components: {
-    modal
-  },
+  name: "modal",
   mounted() {
     const modal = document.getElementById("modal"); // Get the modal
 
@@ -74,7 +61,6 @@ export default {
   background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
-/* Modal Content */
 .modal-content {
   background-color: #fefefe;
   margin: auto;
