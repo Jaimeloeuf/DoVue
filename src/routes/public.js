@@ -12,7 +12,7 @@ import Signup from '@/views/Signup.vue';
 import Help from '@/views/Help.vue';
 import Contact from '@/views/Contact.vue';
 
-import PublicNavbar from '@/components/NavBars/PublicNavbar.vue';
+import PublicNavbar from '@/components/NavBars/Public.vue';
 
 // Import AuthType Enum
 import AuthType from './AuthType';

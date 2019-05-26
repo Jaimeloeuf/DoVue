@@ -9,8 +9,8 @@ import firebase from 'firebase';
 
 
 // Import routes
-import notesRoutes from './notesRoutes';
-import publicRoutes from './publicRoutes';
+import privateRoutes from './private';
+import publicRoutes from './public';
 
 // Import AuthType Enum
 import AuthType from './AuthType';
@@ -43,7 +43,7 @@ const router = new Router({
             redirect: '/about'
         },
         ...publicRoutes,
-        ...notesRoutes
+        ...privateRoutes
     ]
 });
 
@@ -75,7 +75,7 @@ function AuthChecker(to, from, next) {
         next('login');
     // If route is public only and user is logged in, redirect to default private route
     else if (AuthType_required_is.public_only && currentUser)
-        next('notes');
+        next('user');
     // Else, just continue navigation as per user request.
     else
         next();
