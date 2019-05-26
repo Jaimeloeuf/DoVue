@@ -7,6 +7,11 @@ import store from './store';
 // Import other dependencies
 import VModal from 'vue-js-modal';
 import autofocus from './directives/autofocus';
+import VueUi from '@vue/ui';
+
+
+// Register VueUI components to use
+Vue.use(VueUi)
 
 // Register the VModal component for other components to use.
 Vue.use(VModal);
