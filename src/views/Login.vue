@@ -43,12 +43,16 @@ export default {
     };
   },
   methods: {
-    login: function() {
+    login() {
       firebase
         .auth()
         .signInWithEmailAndPassword(this.email, this.password)
-        // .then(user => this.$router.replace("notes"))
-        .then(() => this.$router.replace("notes"))
+        .then(usr => {
+          // Extract the userID out from the user's email address
+          const name = usr.user.email.split("@")[0];
+          // Route to the user's home page, after login
+          this.$router.replace({ name: "user", params: { user: name } });
+        })
         .catch(err => {
           // @Debug Log the full error message from firebase for debug purposes only
           console.log(err.message);
