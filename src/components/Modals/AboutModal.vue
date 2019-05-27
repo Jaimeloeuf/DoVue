@@ -12,8 +12,6 @@
     :max-width="1000"
     width="80%"
     height="50%"
-    @before-open="beforeopen"
-    @before-close="beforeclose"
   >
     <div class="about">
       <div class="left">
@@ -34,22 +32,7 @@
 
 <script>
 export default {
-  name: "AboutModal",
-  mounted() {
-    //   Show the modal once it is mounted onto the app
-    this.$modal.show("AboutModal");
-  },
-  methods: {
-    beforeopen() {
-      console.log("before open");
-    },
-    beforeclose() {
-      // Close modal and go back to previously show page
-      if (window.history.length > 1) this.$router.go(-1);
-      // Show the default notes/all page if there is no previous view
-      else this.$router.replace({ name: "all-notes" });
-    }
-  }
+  name: "AboutModal"
 };
 </script>
 

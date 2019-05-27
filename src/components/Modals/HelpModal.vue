@@ -5,25 +5,16 @@
 */
 
 <template>
-  <modal
-    name="HelpModal"
-    :adaptive="true"
-    :max-width="1000"
-    width="80%"
-    height="50%"
-    @before-open="beforeopen"
-    @before-close="beforeclose"
-  >
+  <modal name="HelpModal" :adaptive="true" :max-width="1000" width="80%" height="50%">
+    <!-- @before-close="beforeclose" -->
     <div class="help">
       <div class="left">
-        <img src="@/assets/logo.png" alt="DoVue logo" >
+        <img src="@/assets/logo.png" alt="DoVue logo">
         <h1 style="color: #004f12; display: inline;">DoVue</h1>
         <h3 class="slogan">Simple, Reliable, Beautiful</h3>
       </div>
       <div class="help-section">
-        <p>
-          
-        </p>
+        <p></p>
       </div>
     </div>
   </modal>
@@ -32,19 +23,7 @@
 
 <script>
 export default {
-  name: "HelpModal",
-  mounted() {
-    //   Show the modal once it is mounted onto the app
-    this.$modal.show("HelpModal");
-  },
-  methods: {
-    beforeopen() {
-      console.log("before open");
-    },
-    beforeclose() {
-      this.$router.replace({ name: "notes" });
-    }
-  }
+  name: "HelpModal"
 };
 </script>
 
