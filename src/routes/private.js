@@ -31,20 +31,14 @@ const otherRoutes = [
     {
         path: 'contact',
         name: 'contact',
-        components: {
-            default: Contact,
-            navbar: PrivateNavbar
-        },
+        component: Contact,
         meta: {
             Auth_requirements: AuthType.private
         }
     }, {
         path: 'settings',
         name: 'settings',
-        components: {
-            default: Settings,
-            navbar: PrivateNavbar
-        },
+        component: Settings,
         meta: {
             Auth_requirements: AuthType.private
         }
