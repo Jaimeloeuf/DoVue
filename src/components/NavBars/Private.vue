@@ -1,9 +1,6 @@
 /*  @Doc
     Navigation bar when user is authenticated.
     Shown in the Notes view for now.
-
-    @Todo
-    - Finish building the modal componanent and put it into an individual component.
 */
 
 <template>
@@ -15,16 +12,21 @@
     <SearchBox/>
 
     <div class="float-right">
-      <button>Help</button>&nbsp;|
-      <button>About</button>&nbsp;|
+      <button @click="$modal.show('HelpModal')">Help</button>&nbsp;|
+      <button @click="$modal.show('AboutModal')">About</button>&nbsp;|
       <button>Contact Us</button>&nbsp;|
       <LogoutBtn/>
     </div>
     <hr>
+    <!-- Below are all the modals that the user can select -->
+    <AboutModal/>
+    <HelpModal/>
   </div>
 </template>
 
 <script>
+import AboutModal from "@/components/Modals/AboutModal.vue";
+import HelpModal from "@/components/Modals/HelpModal.vue";
 import LogoutBtn from "@/components/LogoutBtn.vue";
 import SearchBox from "@/components/SearchBox.vue";
 
@@ -32,7 +34,9 @@ export default {
   name: "NotesNavbar",
   components: {
     SearchBox,
-    LogoutBtn
+    LogoutBtn,
+    AboutModal,
+    HelpModal
   }
 };
 </script>
