@@ -2,39 +2,36 @@
     View for user settings, accessible only when user is authenticated.
 
     @Todo
-    - Perhaps build a settings service, to retrieve settings on startup, and to push changes back to server
+    - Build a settings service, to retrieve settings on startup, and to push changes back to server
 */
 
 <template>
   <div class="settings-view">
-    <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-    <router-view/>
+    <sideBar/>
+    <h1 style="color: #009e04;">Settings</h1>
 
     <!-- @Todo replace the way settings are displayed before. -->
     <!-- List all the individual settings -->
     <ul class="settings">
-      <li v-for="setting of settings" v-bind:key="setting.id" @click="">{{ setting.description }}</li>
+      <li v-for="setting of settings" v-bind:key="setting.id" @click>{{ setting.description }}</li>
     </ul>
-
-    <!-- @Todo Create a settings nav bar -->
-    <!--Sections in the settings nav bar: 
-        - General
-        - Display
-        - Feedback
-     -->
+    <router-view/>
   </div>
 </template>
 
 <script>
+import sideBar from "@/components/NavBars/Settings.vue";
+
 export default {
   name: "Settings",
+  components: {
+    sideBar
+  },
   data() {
     return {};
   },
   methods: {
-      save() {
-
-      }
+    save() {}
   }
 };
 </script>
