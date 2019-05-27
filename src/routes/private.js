@@ -9,9 +9,7 @@ import PrivateNavbar from '@/components/NavBars/Private.vue';
 
 import User from '@/views/User.vue';
 import Editor from '@/components/Editor.vue';
-import HelpModal from '@/components/Modals/HelpModal.vue';
-import AboutModal from '@/components/AboutModal.vue';
-import ContactModal from '@/components/ContactModal.vue';
+import Contact from '@/views/Contact.vue';
 import All from '@/views/NoteViews/all.vue';
 import Settings from '@/views/Settings.vue';
 
@@ -45,23 +43,14 @@ const notesRoutes = {
 export default [
     notesRoutes,
     {
-        path: 'about',
-        name: 'about-modal',
-        components: {
-            default: All,
-            modal: AboutModal
-        }
-    }, {
-        path: 'help',
-        name: 'help-modal',
-        components: {
-            modal: HelpModal
-        }
-    }, {
         path: 'contact',
-        name: 'contact-modal',
+        name: 'contact',
         components: {
-            modal: ContactModal
+            default: Contact,
+            navbar: PrivateNavbar
+        },
+        meta: {
+            Auth_requirements: AuthType.private
         }
     }, {
         path: '/settings',

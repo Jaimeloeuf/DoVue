@@ -15,9 +15,9 @@
     <SearchBox/>
 
     <div class="float-right">
-      <router-link :to="{name: 'help-modal'}">Help</router-link>&nbsp;|
-      <router-link :to="{name: 'about-modal'}">About</router-link>&nbsp;|
-      <router-link :to="{name: 'contact-modal'}">Contact Us</router-link>&nbsp;|
+      <button>Help</button>&nbsp;|
+      <button>About</button>&nbsp;|
+      <button>Contact Us</button>&nbsp;|
       <LogoutBtn/>
     </div>
     <hr>
