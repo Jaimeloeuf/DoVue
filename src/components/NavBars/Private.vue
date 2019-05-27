@@ -1,6 +1,11 @@
 /*  @Doc
     Navigation bar when user is authenticated.
     Shown in the Notes view for now.
+
+    @Todo
+    - Make the design of the button for help and about modal consistent with the other router-links
+        - Give the active CSS class to the buttons when they are clicked too.
+    - Implement the contact us view.
 */
 
 <template>
@@ -14,6 +19,7 @@
     <div class="float-right">
       <button @click="$modal.show('HelpModal')">Help</button>&nbsp;|
       <button @click="$modal.show('AboutModal')">About</button>&nbsp;|
+      <router-link :to="{name: 'settings'}">Settings</router-link>&nbsp;|
       <button>Contact Us</button>&nbsp;|
       <LogoutBtn/>
     </div>

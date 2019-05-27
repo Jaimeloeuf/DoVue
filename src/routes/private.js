@@ -1,8 +1,6 @@
 /*
 
     @Todo
-    - Update the components properties of the child routes for modals to automatically
-        include All or the last seen component as the default component.
 */
 
 import PrivateNavbar from '@/components/NavBars/Private.vue';
@@ -16,32 +14,20 @@ import Settings from '@/views/Settings.vue';
 // Import AuthType Enum
 import AuthType from './AuthType';
 
-const notesRoutes = {
-    path: '/:user',
-    components: {
-        default: User,
-        navbar: PrivateNavbar
-    },
-    meta: {
-        Auth_requirements: AuthType.private
-    },
-    children: [{
-        path: '/',
-        name: 'user',
-        redirect: 'all'
-    }, {
-        path: 'all',
-        name: 'all-notes',
-        component: All // View component for all notes
-    }, {
-        path: ':id', component: Editor
-    }]
-};
+const notesRoutes = [{
+    path: '/',
+    name: 'user',
+    redirect: 'all'
+}, {
+    path: 'all',
+    name: 'all-notes',
+    component: All // View component for all notes
+}, {
+    path: ':id', component: Editor
+}];
 
 
-// "/user" routes and its child routes
-export default [
-    notesRoutes,
+const otherRoutes = [
     {
         path: 'contact',
         name: 'contact',
@@ -53,7 +39,7 @@ export default [
             Auth_requirements: AuthType.private
         }
     }, {
-        path: '/settings',
+        path: 'settings',
         name: 'settings',
         components: {
             default: Settings,
@@ -63,3 +49,19 @@ export default [
             Auth_requirements: AuthType.private
         }
     }];
+
+
+// "/user" routes and its child routes
+export default [{
+    path: '/:user',
+    components: {
+        default: User,
+        navbar: PrivateNavbar
+    },
+    meta: {
+        Auth_requirements: AuthType.private
+    },
+    children: [
+        ...otherRoutes,
+        ...notesRoutes]
+}];
