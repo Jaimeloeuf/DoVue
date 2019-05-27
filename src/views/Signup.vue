@@ -26,7 +26,7 @@ function error_msg(err) {
     case "auth/wrong-password":
       return "Invalid password or email.";
     case "auth/email-already-in-use":
-        return "Email already in use, please log in instead. Reset password if you have forgotten it."
+      return "Email already in use, please log in instead. Reset password if you have forgotten it.";
 
     default:
       return "Ugh, something went wrong! Try again please?";
@@ -48,7 +48,12 @@ export default {
       firebase
         .auth()
         .createUserWithEmailAndPassword(this.email, this.password)
-        .then(user => this.$router.replace("notes"))
+        .then(usr => {
+          // Extract the userID out from the user's email address
+          const name = usr.user.email.split("@")[0];
+          // Route to the user's home page, after login
+          this.$router.replace({ name: "user", params: { user: name } });
+        })
         .catch(err => {
           // @Debug Log the full error message from firebase for debug purposes only
           console.log(err.message);
