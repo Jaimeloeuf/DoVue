@@ -7,9 +7,6 @@
 
 <template>
   <div class="notes-view">
-    <!-- Router view for displaying modals via Routes -->
-    <router-view name="modal"/>
-
     <!-- Default Router view for notes -->
     <router-view/>
   </div>
