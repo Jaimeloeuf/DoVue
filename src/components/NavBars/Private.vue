@@ -1,6 +1,5 @@
 /*  @Doc
     Navigation bar when user is authenticated.
-    Shown in the Notes view for now.
 
     @Todo
     - Make the design of the button for help and about modal consistent with the other router-links
@@ -20,7 +19,7 @@
       <button @click="$modal.show('HelpModal')">Help</button>&nbsp;|
       <button @click="$modal.show('AboutModal')">About</button>&nbsp;|
       <router-link :to="{name: 'settings'}">Settings</router-link>&nbsp;|
-      <button>Contact Us</button>&nbsp;|
+      <router-link :to="{name: 'contact-private'}">Contact Us</router-link>&nbsp;|
       <LogoutBtn/>
     </div>
     <hr>

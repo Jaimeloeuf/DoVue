@@ -6,6 +6,7 @@
 import PrivateNavbar from '@/components/NavBars/Private.vue';
 
 import User from '@/views/User.vue';
+import Notes from '@/views/NoteViews/Notes.vue';
 import Editor from '@/components/Editor.vue';
 import Contact from '@/views/Contact.vue';
 import All from '@/views/NoteViews/all.vue';
@@ -16,21 +17,28 @@ import AuthType from './AuthType';
 
 const notesRoutes = [{
     path: '/',
-    name: 'user',
+    name: 'notes',
     redirect: 'all'
 }, {
     path: 'all',
     name: 'all-notes',
-    component: All // View component for all notes
+    component: All, // View component for all notes
+    meta: {
+        Auth_requirements: AuthType.private
+    }
 }, {
-    path: ':id', component: Editor
+    path: ':id',
+    component: Editor,
+    meta: {
+        Auth_requirements: AuthType.private
+    }
 }];
 
 
 const otherRoutes = [
     {
         path: 'contact',
-        name: 'contact',
+        name: 'contact-private',
         component: Contact,
         meta: {
             Auth_requirements: AuthType.private
@@ -52,10 +60,21 @@ export default [{
         default: User,
         navbar: PrivateNavbar
     },
+    // The default /:userID/ route should redirect to notes/all
+    redirect: { name: 'all-notes' },
     meta: {
         Auth_requirements: AuthType.private
     },
-    children: [
-        ...otherRoutes,
-        ...notesRoutes]
+    children: [...otherRoutes]
+},
+{
+    path: '/:user/notes',
+    components: {
+        default: Notes,
+        navbar: PrivateNavbar
+    },
+    meta: {
+        Auth_requirements: AuthType.private
+    },
+    children: [...notesRoutes]
 }];
