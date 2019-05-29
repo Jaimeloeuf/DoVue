@@ -6,7 +6,7 @@
 */
 
 <template>
-  <div class="notes-view">
+  <div class="user-view">
     <!-- Default Router view for notes -->
     <router-view/>
   </div>
@@ -14,12 +14,12 @@
 
 <script>
 export default {
-  name: "Notes"
+  name: "user"
 };
 </script>
 
 <style scoped>
-.notes-view {
+.user-view {
   margin-top: 4em;
 }
 </style>
