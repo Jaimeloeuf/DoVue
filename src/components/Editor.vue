@@ -13,16 +13,14 @@
     height="auto"
     width="60%"
     :scrollable="true"
-    @before-close="beforeclose"
+    @before-close="closeModal"
   >
     <div class="editor">
       <input type="text" v-model="title" placeholder="Title">
       <br>
+      <!-- @Todo rewrite the text area to fill the modal instead. -->
       <textarea v-autofocus v-model="note" placeholder="Take a note here..." cols="30" rows="10"/>
       <br>
-
-      <p>no</p>
-
       <!-- @Todo Create a new editor bar component -->
       <button @click="closeNsaveNote">Close</button>
     </div>
@@ -32,13 +30,12 @@
 <script>
 export default {
   name: "Editor",
-
   mounted() {
     //   Show the modal once it is mounted onto the app
     this.$modal.show("editor-modal");
   },
   methods: {
-    beforeclose() {
+    closeModal() {
       // @Todo Add a check for history to make sure that the previous route is still from DoVue
       // Close modal and go back to previously show page
       if (window.history.length > 1) this.$router.go(-1);
@@ -47,7 +44,12 @@ export default {
       else this.$router.replace({ name: "all-notes" });
     },
     closeNsaveNote() {
-      // Close the connection and close the editor
+      /* Function to call to save the note and close the modal */
+      /*    Call function to save the note
+            Close server connection
+            ^ Probs handled by the notes or data service.
+            close the editor modal
+        */
     }
   },
   //   props: {},
