@@ -16,10 +16,6 @@ import Settings from '@/views/Settings.vue';
 import AuthType from './AuthType';
 
 const notesRoutes = [{
-    path: '/',
-    name: 'notes',
-    redirect: 'all'
-}, {
     path: 'all',
     name: 'all-notes',
     component: All, // View component for all notes
@@ -28,7 +24,10 @@ const notesRoutes = [{
     }
 }, {
     path: ':id',
-    component: Editor,
+    components: {
+        default: All,
+        editor: Editor
+    },
     meta: {
         Auth_requirements: AuthType.private
     }
@@ -69,10 +68,13 @@ export default [{
 },
 {
     path: '/:user/notes',
+    name: 'user-home',
     components: {
         default: Notes,
         navbar: PrivateNavbar
     },
+    // The default /:userID/notes route should redirect to notes/all
+    redirect: { name: 'all-notes' },
     meta: {
         Auth_requirements: AuthType.private
     },

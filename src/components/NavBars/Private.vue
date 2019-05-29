@@ -9,9 +9,9 @@
 
 <template>
   <div id="nav">
-    <a href="/#/notes">
+    <router-link :to="{name: 'user-home'}">
       <img src="@/assets/logo.png" alt="DoVue logo">
-    </a>
+    </router-link>
     <router-link :to="{name: 'all-notes'}">Notes</router-link>&nbsp;|
     <SearchBox/>
 
