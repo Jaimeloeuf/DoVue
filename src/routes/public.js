@@ -26,9 +26,7 @@ export default [{
         navbar: PublicNavbar,
         default: About
     },
-    meta: {
-        Auth_requirements: AuthType.public_only
-    }
+    meta: { Auth_requirements: AuthType.public_only }
 },
 {
     path: '/login',
@@ -38,9 +36,7 @@ export default [{
         navbar: PublicNavbar,
         default: Login
     },
-    meta: {
-        Auth_requirements: AuthType.public_only
-    }
+    meta: { Auth_requirements: AuthType.public_only }
 },
 {
     path: '/sign-up',
@@ -49,9 +45,7 @@ export default [{
         navbar: PublicNavbar,
         default: Signup
     },
-    meta: {
-        Auth_requirements: AuthType.public_only
-    }
+    meta: { Auth_requirements: AuthType.public_only }
 },
 {
     path: '/help',
@@ -60,9 +54,7 @@ export default [{
         navbar: PublicNavbar,
         default: Help
     },
-    meta: {
-        Auth_requirements: AuthType.public_only
-    }
+    meta: { Auth_requirements: AuthType.public_only }
 },
 {
     path: '/contact',
@@ -71,7 +63,5 @@ export default [{
         navbar: PublicNavbar,
         default: Contact
     },
-    meta: {
-        Auth_requirements: AuthType.public_only
-    }
+    meta: { Auth_requirements: AuthType.public_only }
 }];

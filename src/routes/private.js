@@ -19,18 +19,14 @@ const notesRoutes = [{
     path: 'all',
     name: 'all-notes',
     component: All, // View component for all notes
-    meta: {
-        Auth_requirements: AuthType.private
-    }
+    meta: { Auth_requirements: AuthType.private }
 }, {
     path: ':id',
     components: {
         default: All,
         editor: Editor
     },
-    meta: {
-        Auth_requirements: AuthType.private
-    }
+   meta: { Auth_requirements: AuthType.private }
 }];
 
 
@@ -39,16 +35,12 @@ const otherRoutes = [
         path: 'contact',
         name: 'contact-private',
         component: Contact,
-        meta: {
-            Auth_requirements: AuthType.private
-        }
+        meta: { Auth_requirements: AuthType.private }
     }, {
         path: 'settings',
         name: 'settings',
         component: Settings,
-        meta: {
-            Auth_requirements: AuthType.private
-        }
+        meta: { Auth_requirements: AuthType.private }
     }];
 
 
@@ -61,9 +53,7 @@ export default [{
     },
     // The default /:userID/ route should redirect to notes/all
     redirect: { name: 'all-notes' },
-    meta: {
-        Auth_requirements: AuthType.private
-    },
+    meta: { Auth_requirements: AuthType.private },
     children: [...otherRoutes]
 },
 {
@@ -75,8 +65,6 @@ export default [{
     },
     // The default /:userID/notes route should redirect to notes/all
     redirect: { name: 'all-notes' },
-    meta: {
-        Auth_requirements: AuthType.private
-    },
+    meta: { Auth_requirements: AuthType.private },
     children: [...notesRoutes]
 }];
