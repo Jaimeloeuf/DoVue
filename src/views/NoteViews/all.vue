@@ -4,24 +4,30 @@
         "/notes/all"
 
     @Todo
+    - Create notes service to replace hard coded mock data
     - Create a tutorial like component that help user get started if there is no notes.
 */
 
 <template>
   <div class="all-notes">
-    <!-- Only display if there is more than one note -->
+    <!-- @Todo What does @remove="removeTodo" event means? -->
     <ul v-if="notes && notes.length" class="notes">
-      <!-- <TodoListItem v-for="todo in todos" :key="todo.id" :todo="todo" @remove="removeTodo"/> -->
-      <li v-for="note of notes" v-bind:key="note.id" @click="openNote">{{ note.text }}</li>
+      <note v-for="note of notes" v-bind:key="note.id" :note="note" @click="openNote"/>
     </ul>
+
     <!-- @Todo create a Seperate component that is hot loaded only when its used -->
     <p v-else>Nothing left in the list. Add a new todo in the input above.</p>
   </div>
 </template>
 
 <script>
+import note from "@/components/Note.vue";
+
 export default {
   name: "Notes",
+  components: {
+    note
+  },
   data() {
     return {
       notes: [
