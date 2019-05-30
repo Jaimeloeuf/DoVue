@@ -7,21 +7,16 @@
     @Todo
     - Add a Make the notes-block to be fixed widths
         - It should have 2 fixed widths, depending on the width of the display.
-    - Add a check, to only display e.g. up to 100 characters of each note, to prevent it from being too vertically long
 */
 
 <template>
   <li class="note">
-    <!-- Display note title -->
     <p class="note-title">{{ note.title }}</p>
-    <!-- Display the text of the note -->
     <div class="note-text">
-      <p v-if="note.text.length < 100">{{ note.text }}</p>
-      <p v-else>
-        {{ note.text.substr(0, 100) }}
-        <span>...</span>
-      </p>
+      <!-- Splice the string if more than 100 characters -->
+      <p>{{ (note.text.length > 100) ? `${note.text.substr(0, 100)} ...` : note.text }}</p>
     </div>
+
     <!-- @Todo Create a new note option component. With things like delete note / pin note buttons -->
     <!-- Upon clicking x to delete the note, event will be emitted for notes service to catch -->
     <span @click="$emit('remove', note.id)">&times;</span>
@@ -53,13 +48,13 @@ export default {
 }
 
 .note-title {
-    font-size: 1.1em;
-    font-weight: 500;
-    color: #545456;
-    text-align: left;
-    padding: 0em;
-    margin: 0em;
-    margin-top: 0.4em;
+  font-size: 1.1em;
+  font-weight: 500;
+  color: #545456;
+  text-align: left;
+  padding: 0em;
+  margin: 0em;
+  margin-top: 0.4em;
 }
 
 .note-text {
