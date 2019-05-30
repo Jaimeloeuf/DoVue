@@ -5,12 +5,14 @@
     to open when the note is clicked.
 
     @Todo
+    - Make the component clickable with the right link to the correct URL
     - Add a Make the notes-block to be fixed widths
         - It should have 2 fixed widths, depending on the width of the display.
 */
 
 <template>
-  <li class="note">
+  <!-- Pass id of note to method to open up this note in the editor -->
+  <li class="note" @click="openNote(note.id)">
     <p class="note-title">{{ note.title }}</p>
     <div class="note-text">
       <!-- Splice the string if more than 100 characters -->
@@ -25,10 +27,17 @@
 
 <script>
 export default {
+  name: "note",
   props: {
     note: {
       type: Object,
       required: true
+    }
+  },
+  methods: {
+    openNote(id) {
+      /* Method to open a note using the note's id */
+      this.$router.push({ name: "note-editor", params: { id } });
     }
   }
 };

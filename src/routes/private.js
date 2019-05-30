@@ -22,6 +22,7 @@ const notesRoutes = [{
     meta: { Auth_requirements: AuthType.private }
 }, {
     path: ':id',
+    name: 'note-editor',
     components: {
         default: All,
         editor: Editor
