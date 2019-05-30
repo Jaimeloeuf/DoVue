@@ -7,8 +7,7 @@
 
 <template>
   <div class="settings-view">
-    <sideBar/>
-    <h1 style="color: #009e04;">Settings</h1>
+    <sideBar class="sideBar"/>
 
     <!-- @Todo replace the way settings are displayed before. -->
     <!-- List all the individual settings -->
@@ -40,10 +39,8 @@ export default {
 .settings-view {
   margin-top: 4em;
 }
-.settings {
-  list-style-type: none;
-}
-.settings li {
-  cursor: pointer;
+
+.sideBar {
+    float: left;
 }
 </style>
