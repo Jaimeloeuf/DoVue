@@ -27,7 +27,8 @@ function error_msg(err) {
   switch (err.code) {
     case "auth/wrong-password":
       return "Invalid password or email.";
-
+    case "auth/network-request-failed":
+      return "Oops, please check your internet connection!";
     default:
       return "Ugh, something went wrong! Try again please?";
   }
