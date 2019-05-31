@@ -4,6 +4,10 @@ To provide our users with a Simple, Reliable and Beautiful note taking app, that
 This is an open source project with a 3 Clause BSD license and a subscription version will be available too in the future that provides more value added features such as real-time sync and backups across all devices.  
 You can refer to the todo.md file in project root to view items currently being worked on.
 
+## Current release/version
+DoVue is still under development right now and thus is in pre-alpha stage.  
+Currently it is only available if you build it and host yourself to test with the code. There is no public host for this project yet!
+
 ## Resources
 [Features to have](https://www.computerworld.com/article/3026239/google-keep-3-years.html)
 
