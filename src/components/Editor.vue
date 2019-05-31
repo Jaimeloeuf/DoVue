@@ -2,34 +2,43 @@
     This is the text editor for the notes.
 
     @Todo
-    - Make all the li items for individaul notes work the same way as a button
+    - Fix the width of the editor to making it changeable based on width of the viewport.
     - On click, trigger a function that will change the route to the route of the note, and show the EditorModal with the selected note in it using props passed into the editor component.
+    - Add line numbers to the editor and allow the user to toggle it on and off
 */
 
 <template>
   <modal
     name="editor-modal"
     :adaptive="true"
-    height="auto"
+    draggable=".window-header"
+    height="80%"
     width="60%"
-    :scrollable="true"
     @before-close="closeModal"
   >
+    <div class="window-header">
+      {{ note.id }}
+      <br>
+      <br>
+    </div>
     <div class="editor">
-      <input type="text" v-model="title" placeholder="Title">
+      <input type="text" v-model="title" class="note-title" placeholder="Title">
       <br>
-      <!-- @Todo rewrite the text area to fill the modal instead. -->
-      <textarea v-autofocus v-model="note" placeholder="Take a note here..." cols="30" rows="10"/>
+      <textarea v-autofocus v-model="note" class="note-text" placeholder="Take a note..."/>
       <br>
-      <!-- @Todo Create a new editor bar component -->
-      <button @click="closeNsaveNote">Close</button>
+      <EditorBar class="editor-bar"/>
     </div>
   </modal>
 </template>
 
 <script>
+import EditorBar from "@/components/EditorBar";
+
 export default {
   name: "Editor",
+  components: {
+    EditorBar
+  },
   mounted() {
     //   Show the modal once it is mounted onto the app
     this.$modal.show("editor-modal");
@@ -52,15 +61,64 @@ export default {
         */
     }
   },
-  //   props: {},
+  props: {
+    // The note id which is in the note param will be received as a prop instead
+  },
   data() {
     return {
-      title: "test",
-      note: "test"
+      title: "",
+      note: ""
     };
   }
 };
 </script>
 
-<style>
-</style>
+<style scoped>
+.window-header {
+  border: 1px solid #edf3fc;
+  border-style: none none solid none;
+}
+
+.editor {
+  /* Max width for the editor because 80 character word wraps
+    Make word wrap customisable? User can set wrap. */
+  max-width: 80em;
+}
+
+.note-title {
+  /* Make the title input's width 100% relative to the modal */
+  width: 100%;
+  /* Remove border and focus highlighting */
+  outline: none;
+  border: 0px none;
+  /* Make the text "float" in the middle */
+  margin: 0.5em 0.5em 1em 0.5em;
+
+  /* Change the font used to make it like roboto */
+
+  font-weight: 400;
+  font-size: 1.2em;
+}
+
+.note-text {
+  /* Prevent user from resizing the text input area */
+  resize: none;
+  /* Make the textarea stretch out to fit fully into the modal's space */
+  width: 100%;
+  height: 60em;
+  /* Remove border and focus highlighting */
+  outline: none;
+  border: 0px none;
+
+  margin: 0.5em 0.5em 1em 0.5em;
+  /* padding: 0.5em 0em 0em 0.5em; */
+}
+
+.editor-bar {
+  position: absolute;
+  bottom: 1em;
+}
+
+.v-modal-overlay[data-modal="editor-modal"] {
+}
+</style>+
