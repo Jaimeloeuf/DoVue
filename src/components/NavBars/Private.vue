@@ -2,9 +2,6 @@
     Navigation bar when user is authenticated.
 
     @Todo
-    - Make the design of the button for help and about modal consistent with the other router-links
-        - Give the active CSS class to the buttons when they are clicked too.
-    - Implement the contact us view.
 */
 
 <template>

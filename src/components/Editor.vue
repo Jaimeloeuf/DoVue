@@ -5,6 +5,7 @@
     - Fix the width of the editor to making it changeable based on width of the viewport.
     - On click, trigger a function that will change the route to the route of the note, and show the EditorModal with the selected note in it using props passed into the editor component.
     - Add line numbers to the editor and allow the user to toggle it on and off
+    - Maybe change this to stop using the modal.
 */
 
 <template>
@@ -17,7 +18,8 @@
     @before-close="closeModal"
   >
     <div class="window-header">
-      {{ note.id }}
+      <!-- Display the name of the note if there is one. -->
+      <!-- {{ note.name ? note.name : note.id }} -->
       <br>
       <br>
     </div>
@@ -26,6 +28,7 @@
       <br>
       <textarea v-autofocus v-model="note" class="note-text" placeholder="Take a note..."/>
       <br>
+      <Tags/>
       <EditorBar class="editor-bar"/>
     </div>
   </modal>

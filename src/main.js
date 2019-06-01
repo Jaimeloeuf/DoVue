@@ -38,8 +38,10 @@ firebase.initializeApp({
 // So that the router navigation wont break due to invalid auth
 firebase.auth().onAuthStateChanged(() => {
     new Vue({
+        // Using the "router" option, inject router's instance to all child components
         router,
+        // Using the "store" option, inject store's instance to all child components
         store,
         render: h => h(App)
     }).$mount('#app')
-})
+});

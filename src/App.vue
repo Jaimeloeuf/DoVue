@@ -4,6 +4,8 @@
     <router-view name="navbar"/>
 
     <!-- Router view for the main view -->
+    <!-- This router-view should be switching between showing the Private or Public view.
+    By doing that, we can scrap the need to add the navbar components into all the routing.-->
     <router-view/>
   </div>
 </template>
