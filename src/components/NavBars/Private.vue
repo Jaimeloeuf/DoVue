@@ -16,14 +16,14 @@
     <SearchBox/>
 
     <div class="float-right">
+      <router-link :to="{name: 'settings'}">Settings</router-link>&nbsp;|
       <button @click="$modal.show('HelpModal')">Help</button>&nbsp;|
       <button @click="$modal.show('AboutModal')">About</button>&nbsp;|
-      <router-link :to="{name: 'settings'}">Settings</router-link>&nbsp;|
       <router-link :to="{name: 'contact-private'}">Contact Us</router-link>&nbsp;|
       <LogoutBtn/>
     </div>
     <hr>
-    <!-- Below are all the modals that the user can select -->
+    <!-- Below are all modals the user can open -->
     <AboutModal/>
     <HelpModal/>
   </div>
@@ -42,6 +42,10 @@ export default {
     LogoutBtn,
     AboutModal,
     HelpModal
+  },
+  beforeCreate() {
+    // @Todo Debug statement to prevent navbar from being always re-rendered
+    console.log("navbar created");
   }
 };
 </script>
@@ -56,14 +60,29 @@ img {
   margin-right: 1em;
 }
 
-a {
+/* The links and buttons share the same styles for consistency */
+a,
+button {
   font-weight: bold;
-  color: #2c3e50;
+  color: #33506d;
   text-decoration: none;
 }
 
-#nav a.router-link-exact-active {
+/* Same active color for both the buttons and links */
+#nav a.router-link-exact-active,
+button:focus {
   color: #018e2b;
+}
+
+button {
+  /* Style the buttons to look like <a> tags to make navbar consistent */
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1em;
+
+  /* Remove outline when button is clicked */
+  outline: none;
 }
 
 .float-right {

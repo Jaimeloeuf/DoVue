@@ -18,6 +18,8 @@
       <!-- List all the settings section -->
       <li>General</li>
       <hr>
+      <li>Notes</li>
+      <hr>
       <li>Email and Account</li>
       <hr>
       <li>Storage</li>

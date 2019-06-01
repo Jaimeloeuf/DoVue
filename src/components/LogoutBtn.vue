@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import firebase, { functions } from "firebase";
+import firebase from "firebase";
 
 export default {
   name: "LogoutBtn",
@@ -20,4 +20,10 @@ export default {
 </script>
 
 <style scoped>
+button {
+  /* Style it to look like a button to undo the styles from private navbar */
+  border: 1px solid grey;
+  border-radius: 0.5em;
+  padding-top: 0em;
+}
 </style>

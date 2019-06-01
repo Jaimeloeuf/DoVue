@@ -16,7 +16,11 @@
 
 <script>
 export default {
-  name: "PublicNavbar"
+  name: "PublicNavbar",
+  beforeCreate() {
+    // @Todo Debug statement to prevent navbar from being always re-rendered
+    console.log("navbar created");
+  }
 };
 </script>
 
@@ -34,7 +38,7 @@ img {
 
 #nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: #33506d;
   text-decoration: none;
 }
 

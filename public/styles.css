@@ -1,7 +1,12 @@
+/*  @Todo
+    - Change to stop using vw
+        - use percentage or em instead
+        - because vw may stay unchanged even when things like inspector is opened
+*/
+
 body {
     max-width: 90vw;
     margin: 0 auto;
     padding: 5vw;
     padding-top: 2vw;
 }
-  
