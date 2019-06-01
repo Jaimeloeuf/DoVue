@@ -21,6 +21,7 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 import note from "@/components/Note.vue";
 
 export default {
@@ -28,16 +29,9 @@ export default {
   components: {
     note
   },
-  data() {
-    return {
-      notes: [
-        { id: 1, title: "Learn JavaScript", text: "Because it's great!" },
-        { id: 2, title: "Learn Vue", text: "Because it's awesome and allowed me to build this app!" },
-        { id: 3, title: "Build something awesome", text: "Because why not? What are you waiting for?" },
-        { id: 4, title: "Test", text: "Build something awesomeBuild something awesomeBuild something awesomeBuild something awesomeBuild something awesome" }
-      ]
-    };
-  },
+  computed: mapState({
+    notes: state => state.notes
+  }),
   methods: {
     openNote() {}
   }
@@ -46,10 +40,10 @@ export default {
 
 <style scoped>
 .notes {
-    /* Remove the right hand padding */
-    padding-inline-start: 0em;
-    /* Remove the top and bottom margin */
-    margin-block-start: 0em;
-    margin-block-end: 0em;
+  /* Remove the right hand padding */
+  padding-inline-start: 0em;
+  /* Remove the top and bottom margin */
+  margin-block-start: 0em;
+  margin-block-end: 0em;
 }
 </style>

@@ -4,13 +4,14 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-  state: {
+    state: {
+        user: "",
+        notes: require('./mock_notes.json')
+    },
+    mutations: {
 
-  },
-  mutations: {
+    },
+    actions: {
 
-  },
-  actions: {
-
-  }
+    }
 })
