@@ -5,29 +5,33 @@
     to open when the note is clicked.
 
     @Todo
-    - Make the component clickable with the right link to the correct URL
     - Add a Make the notes-block to be fixed widths
         - It should have 2 fixed widths, depending on the width of the display.
 */
 
 <template>
-  <!-- Pass id of note to method to open up this note in the editor -->
-  <li class="note" @click="openNote(note.id)">
-    <p class="note-title">{{ note.title }}</p>
-    <div class="note-text">
-      <!-- Splice the string if more than 100 characters -->
-      <p>{{ (note.text.length > 100) ? `${note.text.substr(0, 100)} ...` : note.text }}</p>
+  <li class="note">
+    <!-- Pass note.id to open up note in editor. Only the notes part is clickable. NoteBar is not included. -->
+    <div class="clickable" @click="openNote(note.id)">
+      <p class="note-title">{{ note.title }}</p>
+      <div class="note-text">
+        <!-- Splice the string if more than 100 characters -->
+        <p>{{ (note.text.length > 100) ? `${note.text.substr(0, 100)} ...` : note.text }}</p>
+      </div>
     </div>
 
-    <!-- @Todo Create a new note option component. With things like delete note / pin note buttons -->
-    <!-- Upon clicking x to delete the note, event will be emitted for notes service to catch -->
-    <span @click="$emit('remove', note.id)">&times;</span>
+    <NoteBar/>
   </li>
 </template>
 
 <script>
+import NoteBar from "@/components/MenuBars/NoteBar.vue";
+
 export default {
   name: "note",
+  components: {
+    NoteBar
+  },
   props: {
     note: {
       type: Object,
@@ -52,15 +56,20 @@ export default {
   padding: 0.5em;
   margin: 0.5em;
   width: 12em;
-  cursor: default;
+  text-align: left;
+
   /* @Todo build the hover effect in */
+}
+
+.clickable {
+  cursor: default;
 }
 
 .note-title {
   font-size: 1.1em;
-  font-weight: 500;
+  font-weight: 600;
   color: #545456;
-  text-align: left;
+
   padding: 0em;
   margin: 0em;
   margin-top: 0.4em;
