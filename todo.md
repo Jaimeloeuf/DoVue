@@ -1,5 +1,15 @@
 # Todo list for DoVue project
 ## High-priority  (Hotfixe issues and bug fixes needed)
+- Seperate editor and editor modal
+    - Editor component should just be UI. All the data is passed by props or through id to retrieve from vuex.
+    - Editor modal simply built by enclosing the editor in a modal
+    - Build create note by enclosing editor component too.
+- Create a new label above notes view to indicate the current filter used by the note view.
+    - Example, in the all notes section, the label would be "all"
+    - When filtered by a tag say, articles, the label would be "articles"
+- Create a create note component. This will always be at the top of the notes view.
+    - This component will always be avail to the user while looking through note views,
+    - It will only disappear when the user is viewing the notes filtered out and in the search view.
 - Add a leave page alert, if user tries to leave page even though the note is not in sync yet
     - Currently there is a basic version built into index.html but its pretty bad, to replace it with vue specific method
     - [Look into in-route-object gaurds](https://router.vuejs.org/guide/advanced/navigation-guards.html#per-route-guard)
@@ -15,11 +25,11 @@
 - Auto fill details in private contact us page with the user details stored in vuex
 - Create a navigation gaurd to make sure user only navigates with their own ":userID" routes.
 - Create a reset password view component
-- Fix the navbar repeated re-rendering bug
 - Component reuse
     - Using lifecycle hook logging, prevent notes component from being created/destroyed on every navigation.
     - Look into the route reuse strategy
     - Although I am using router view for the navbar already, I think it still needs to do component reuse..
+    - Fix the navbar repeated re-rendering bug
 - Navigation with Modals
     - CHange the way navigation for modal is made. Because now notes is changed to notes all. Must navigate back to the last used notes view. However if none, then go back to notes/all.
     - Fix the router thing to prevent the go(-1) still possible to go to other sites. Make sure it does not navigate out of the app too.
@@ -28,7 +38,6 @@
     - Refer to the todo note in notesRoutes.js module
 - Populate settings view component and build the firebase CF for those too.
 - Build the help and contact views
-- Move custom directives into a folder and import them instead, once there a few custom directives
 - Create a check to "kill" the app if firebase fails to init and add a notification item to signal firebase failure
 - Add docs for all the places that use router.replace --> to comment that replace means no nav history recorded.
 - Create the side bar just like what GOogle Keep have.
@@ -69,6 +78,7 @@
 - Create a spinning wheel component/modal that will pop up when login button is clicked. To give visual cue about app load status.
 - Build a public dovue status page. To see the health and status of the site and if it is down.
 - Try integration with Nuxt.JS
+    - Render the tutorial component only if user has no existing notes.
 - Update the default page shown while the App is loading
 - Add the app's version number onto the about page.
 - Add terms of use and a user agreement tickbox as part of the signup page
@@ -79,6 +89,7 @@
 - Implement a Quote of the day section.
     - Too many people use todo list to write down todo items that they want to do but always procrastinate to do. Thus a Quote of the day is suggested to provide motivational quotes on every sign in to try and movtivate users to complete that todo lists.
 - Add a grab text from image feature in the future [link](https://www.youtube.com/watch?v=jezXkZ26aPM)
+
 
 
 ## Todos for Migration away from firebase
@@ -100,9 +111,11 @@ Design the API before touching any of the code - that's the only place where "wi
    - Wunderlist
 
 
+
 ## Other Todos (Misc. items to do once completed above todo lists)
 Introduce pricing and premium plans:
 - Have a contributor plan or smth, where scientists and others who we deem to be doing great work for humanity the premium plan and all its bells and whitles 100% free.
+
 
 
 ## Style and UI changes
@@ -110,6 +123,7 @@ Introduce pricing and premium plans:
 - Round the input boxes for login and signup views
 - Change the margin of the inputs for signup and login, so that they scale better
 - In the bottom words of both login and sign view. Make it so that the color of the link stay the same even after visiting page.
+
 
 
 ### Notes for the notes view
@@ -123,8 +137,10 @@ rest using the broker.
     - The streaming should occur both ways, so that when the user open multiple instances of the app such as in different tabs, they should be able to stream the changes to the data as events to the other instance to update it of the changes made on the first app instance.
 
 
+
 ## Notes on modal routing:
 - Change modal so that when it is activated through a route, it will just overlay on top and leave the other items in the DOM untouched. And thus we no longer need to specifiy the last used view in the Router. So when user opens and closes the Modal, the view will be the same as it was, before the modal was opened.
+
 
 
 ## Read about lifecycle hooks and custom directives.
@@ -134,12 +150,15 @@ https://blog.bitsrc.io/a-guide-to-custom-directives-in-vue-46fc87abfd4f
 https://flaviocopes.com/vue-directives/
 
 
+
 ## Security related todos
 - Only create and inject the notes service after user is successfully logged in. Preventing un authorized components from accessing it.
 
 
+
 ## App optimization
 - Once the user is logged in, the components shown in the public routes should be destroyed and descarded from memory to make the app more lean.
+
 
 
 ## Notes service and search service:

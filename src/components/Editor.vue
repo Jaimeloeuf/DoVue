@@ -6,6 +6,7 @@
     - On click, trigger a function that will change the route to the route of the note, and show the EditorModal with the selected note in it using props passed into the editor component.
     - Add line numbers to the editor and allow the user to toggle it on and off
     - Maybe change this to stop using the modal.
+    - Add a little "last edited date" at the bottom right corner of the editor
 */
 
 <template>
