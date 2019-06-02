@@ -8,6 +8,10 @@ export default new Vuex.Store({
         user: {},
         notes: require('./mock_notes.json')
     },
+    getters: {
+        archivedNotes: (state) => state.notes.filter((note) => note.archived),
+        deletedNotes: (state) => state.notes.filter((note) => note.deleted),
+    },
     mutations: {
 
     },
