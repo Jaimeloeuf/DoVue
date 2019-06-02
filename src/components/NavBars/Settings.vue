@@ -38,6 +38,7 @@ export default {
   display: inline-block;
   text-align: left;
 
+  /* Create a seperator line on the right of the side bar */
   border: 1px solid grey;
   border-style: none solid none none;
 }
