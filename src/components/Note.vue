@@ -20,17 +20,20 @@
       </div>
     </div>
 
+    <tags/>
     <NoteBar/>
   </li>
 </template>
 
 <script>
 import NoteBar from "@/components/MenuBars/NoteBar.vue";
+import tags from "@/components/MenuBars/tags.vue";
 
 export default {
   name: "note",
   components: {
-    NoteBar
+    NoteBar,
+    tags
   },
   props: {
     note: {
