@@ -25,9 +25,9 @@
       <br>
     </div>
     <div class="editor">
-      <input type="text" v-model="title" class="note-title" placeholder="Title">
+      <textarea v-model="note.title" class="note-title" placeholder="Title"/>
       <br>
-      <textarea v-autofocus v-model="note" class="note-text" placeholder="Take a note..."/>
+      <textarea v-autofocus v-model="note.text" class="note-text" placeholder="Take a note..."/>
       <br>
       <Tags/>
       <EditorBar class="editor-bar"/>
@@ -42,6 +42,13 @@ export default {
   name: "Editor",
   components: {
     EditorBar
+  },
+  computed: {
+    note() {
+      const { id } = this.$route.params;
+      //   const { id } = this.$props;
+      return this.$store.getters.noteByID(id);
+    }
   },
   mounted() {
     //   Show the modal once it is mounted onto the app
@@ -67,12 +74,9 @@ export default {
   },
   props: {
     // The note id which is in the note param will be received as a prop instead
-  },
-  data() {
-    return {
-      title: "",
-      note: ""
-    };
+    // id: {
+    //   type: Number
+    // }
   }
 };
 </script>
@@ -90,8 +94,13 @@ export default {
 }
 
 .note-title {
-  /* Make the title input's width 100% relative to the modal */
+  /* Prevent user from resizing the text input area */
+  resize: none;
+  /* Make the textarea stretch out to fit fully into the modal's space */
   width: 100%;
+
+  /* @Todo how to make the box itself enlarge instead of scrolling? */
+
   /* Remove border and focus highlighting */
   outline: none;
   border: 0px none;
@@ -113,9 +122,8 @@ export default {
   /* Remove border and focus highlighting */
   outline: none;
   border: 0px none;
-
+  /* Make the text "float" in the middle */
   margin: 0.5em 0.5em 1em 0.5em;
-  /* padding: 0.5em 0em 0em 0.5em; */
 }
 
 .editor-bar {

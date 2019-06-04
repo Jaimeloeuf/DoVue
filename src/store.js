@@ -1,3 +1,15 @@
+/*
+    @Todo
+    - Fix the issue of importing JSON to string, so that the === can work in noteByID method
+    - Change the way notes are stored so that the I can access the notes using notes ID at O(1)
+    speed without needing to filtering the whole array to search for the one with the correct ID
+        - Can be done by changing the json doc to 1 big object, with note ID as keys and the
+          note object itself as the value.
+    
+    - But doing the above may impact the performance when searching for things like archived notes
+    and tag based searching. Beacuse the loop gets more complicated? Perhaps I should uda
+*/
+
 import Vue from 'vue'
 import Vuex from 'vuex'
 
@@ -9,6 +21,7 @@ export default new Vuex.Store({
         notes: require('./mock_notes.json')
     },
     getters: {
+        noteByID: (state) => (id) => state.notes.filter((note) => note.id == id)[0],
         archivedNotes: (state) => state.notes.filter((note) => note.archived),
         deletedNotes: (state) => state.notes.filter((note) => note.deleted),
     },
