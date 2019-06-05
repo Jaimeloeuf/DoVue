@@ -19,6 +19,7 @@
     
 
     @Todo
+    - What is the difference between using mapState from vuex and using computed note value? Perfomance benefits?
     - Change this view to be the "Notes" view, where the list of notes are always displayed through this view, and filtered in this view too. The filters can be passed in via route param props making them bookmarkable.
     - Write the props from route code.
     - Create function to filter notes by the given props.

@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import NoteBar from "@/components/MenuBars/NoteBar.vue";
+import NoteBar from "@/components/MenuBars/note_management.vue";
 import tags from "@/components/MenuBars/tags.vue";
 
 export default {

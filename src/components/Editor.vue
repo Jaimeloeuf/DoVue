@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import EditorBar from "@/components/EditorBar";
+import EditorBar from "@/components/MenuBars/EditorBar";
 
 export default {
   name: "Editor",
