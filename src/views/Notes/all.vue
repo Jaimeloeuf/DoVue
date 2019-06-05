@@ -32,7 +32,6 @@
   <div class="notes">
     <!-- <label>{{ filter.tags ? filter.tags : filter.type }}</label> -->
 
-    <!-- @Todo What does the @remove event do? -->
     <ul v-if="notes && notes.length" class="notes">
       <note v-for="note of notes" v-bind:key="note.id" :note="note"/>
     </ul>
@@ -78,6 +77,10 @@ export default {
 
 <style scoped>
 .notes {
+  /* display: grid;
+  grid-template-columns: repeat(4, auto);
+  grid-template-rows: repeat(auto, auto); */
+
   /* Remove the right hand padding */
   padding-inline-start: 0em;
   /* Remove the top and bottom margin */

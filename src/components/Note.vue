@@ -59,6 +59,7 @@ export default {
   border-radius: 0.8em;
   padding: 0.5em;
   margin: 0.5em;
+  /* @Todo set the height of the component */
   width: 12em;
   text-align: left;
 

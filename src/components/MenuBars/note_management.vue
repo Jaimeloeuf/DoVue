@@ -7,6 +7,7 @@
 <template>
   <!-- @Todo Create a new note option component. With things like delete note / pin note buttons -->
   <!-- Upon clicking x to delete the note, event will be emitted for notes service to catch -->
+  <!-- @Todo What does the @remove event do? -->
   <span @click="$emit('remove', note.id)">&times;</span>
 </template>
 

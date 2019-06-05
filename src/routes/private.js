@@ -6,10 +6,10 @@
 import PrivateNavbar from '@/components/NavBars/Private.vue';
 
 import User from '@/views/User.vue';
-import Notes from '@/views/NoteViews/Notes.vue';
 import Editor from '@/components/Editor.vue';
 import Contact from '@/views/Contact.vue';
-import All from '@/views/NoteViews/all.vue';
+import Notes from '@/views/Notes/Notes.vue';
+import All from '@/views/Notes/all.vue';
 import Settings from '@/views/Settings.vue';
 
 // Import AuthType Enum
@@ -21,13 +21,14 @@ const notesRoutes = [{
     component: All, // View component for all notes
     meta: { Auth_requirements: AuthType.private }
 }, {
+    // @IMPORTANT  The :id route must be placed last to prevent it from interferring with other routes
     path: ':id',
     name: 'note-editor',
     components: {
         default: All,
         editor: Editor
     },
-   meta: { Auth_requirements: AuthType.private }
+    meta: { Auth_requirements: AuthType.private }
 }];
 
 

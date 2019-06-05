@@ -4,6 +4,7 @@
     - Editor component should just be UI. All the data is passed by props or through id to retrieve from vuex.
     - Editor modal simply built by enclosing the editor in a modal
     - Build create note by enclosing editor component too.
+- Combine editor bar and note_management menu bar component into 1
 - Create a new label above notes view to indicate the current filter used by the note view.
     - Example, in the all notes section, the label would be "all"
     - When filtered by a tag say, articles, the label would be "articles"
@@ -57,6 +58,9 @@
     - Check the current route the user is on, and based on that route, use the abstract tree to figure out if the key has a valid use
         - If yes, fire off the real event to trigger an action such as focusing on the input view.
         - Else, just ignore the key press
+- Combine the tagged view and the all view.
+    - So it just becomes the notes view.
+    - Based on the input props provided by the router, filter the notes as a computed property.
 - Create 404 pages for unknown routes when user is not logged in instead of having a auto-redirect to the main private and public routes as defined in the router object. Include a, redirect to /about page in the 404 page.
     - This is so to let users know that they navigated to a missing route, instead of being auto-redirected away without any explaination.
 - Self changing navbar concept
