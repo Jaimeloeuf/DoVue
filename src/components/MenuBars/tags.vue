@@ -3,12 +3,13 @@
     A list type of tags prop will be received to display
 
     @Todo
+    - Make the note clickable to route user to the Notes view with the selected tag
 */
 
 <template>
   <div v-if="tags && tags.length">
     <!-- <router-link v-for="tag of tags" v-bind:key="tag.id" class="tag"></router-link> -->
-    <p v-for="tag in tags" v-bind:key="tag.id" class="tag">{{ tag }}</p>
+    <p v-for="tag in tags" v-bind:key="tag" class="tag">{{ tag }}</p>
   </div>
 </template>
 
