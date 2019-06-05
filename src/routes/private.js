@@ -1,12 +1,11 @@
-/*
-
-    @Todo
+/*  @Doc
+    This route module contains all the routes that are private only.
 */
 
 import PrivateNavbar from '@/components/NavBars/Private.vue';
 
 import User from '@/views/User.vue';
-import Editor from '@/components/Editor.vue';
+import Editor from '@/components/Modals/EditorModal.vue';
 import Contact from '@/views/Contact.vue';
 import Notes from '@/views/Notes/Notes.vue';
 import All from '@/views/Notes/all.vue';

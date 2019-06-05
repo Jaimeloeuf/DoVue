@@ -1,8 +1,12 @@
 # Todo list for DoVue project
 ## High-priority  (Hotfixe issues and bug fixes needed)
+- Look at all the other projects people did already to see how they manage to make the notes flow into each other
+    - Do they also use the GluTess library or something similiar
+    - Or is plain transform CSS used, with Javascript or even bootstrap?
+- Fix the editor to make it so that only the text input is scollable and not the whole modal
+- Patch editor to allow the Title input box to auto expand and wrap the text as the text length hits the lenght of the input.
 - Seperate editor and editor modal
     - Editor component should just be UI. All the data is passed by props or through id to retrieve from vuex.
-    - Editor modal simply built by enclosing the editor in a modal
     - Build create note by enclosing editor component too.
 - Combine editor bar and note_management menu bar component into 1
 - Create a new label above notes view to indicate the current filter used by the note view.
