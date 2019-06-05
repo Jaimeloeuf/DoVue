@@ -7,6 +7,7 @@
     @Todo
     - Add a Make the notes-block to be fixed widths
         - It should have 2 fixed widths, depending on the width of the display.
+    - Render new lines too! In the editor, the notes is shown as per normal, but in this component, the newlines becomes spaces.
 */
 
 <template>
@@ -20,7 +21,7 @@
       </div>
     </div>
 
-    <tags/>
+    <tags :tags="note.tags"/>
     <NoteBar/>
   </li>
 </template>
