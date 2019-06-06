@@ -9,6 +9,7 @@
 
 <template>
   <div class="editor">
+    <!-- {{ id ? id : 'undefined!!' }} -->
     <textarea v-model="note.title" class="note-title" placeholder="Title"/>
     <br>
     <textarea v-autofocus v-model="note.text" class="note-text" placeholder="Take a note..."/>
@@ -26,13 +27,23 @@ export default {
   components: {
     EditorBar
   },
-  computed: {
-    note() {
-      const { id } = this.$route.params;
-      //   const { id } = this.$props;
-      return this.$store.getters.noteByID(id);
-    }
-  }
+  props: ["note"]
+  /*@Notes
+    Since Editor component is just a UI component now, the note it edits / opens is passed in as a prop instead.
+    Instead of the old way of getting the id from the route to retrieve the note from the store.
+    
+    props: {
+      id: {
+        type: Number,
+        required: true
+      }
+    },
+    computed: {
+      note() {
+        const { id } = this.$props;
+        return this.$store.getters.noteByID(id);
+      }
+    } */
 };
 </script>
 
