@@ -78,8 +78,13 @@ export default {
   padding: 0em;
   margin: 0em;
   margin-top: 0.4em;
+
+  /* Keep the white space formatting */
+  white-space: pre-wrap;
 }
 
 .note-text {
+  /* Keep the white space formatting */
+  white-space: pre-wrap;
 }
 </style>
