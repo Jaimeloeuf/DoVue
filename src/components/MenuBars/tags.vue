@@ -11,9 +11,9 @@
   <div v-if="tags && tags.length">
     <!-- <router-link v-for="tag of tags" v-bind:key="tag.id" class="tag"></router-link> -->
     <div v-for="tag in tags" v-bind:key="tag" class="tag">
-      <span>{{ tag }}</span>
+      <span @click="open(tag)" class="open_tag">{{ tag }}</span>
       <!-- &times; is the cross button for removing the tag from that note -->
-      <span>&times;</span>
+      <span @click="deleteTag(tag)" class="delete_tag">&times;</span>
     </div>
   </div>
 </template>
@@ -21,7 +21,15 @@
 <script>
 export default {
   name: "tags_bar",
-  props: ["tags"]
+  props: ["tags"],
+  methods: {
+    open(tag) {
+      console.log("open", tag);
+    },
+    deleteTag(tag) {
+      console.log("delete", tag);
+    }
+  }
 };
 </script>
 
@@ -33,7 +41,5 @@ export default {
 
   padding: 0.2em 0.5em;
   margin-right: 0.5em;
-
-  cursor: pointer;
 }
 </style>
