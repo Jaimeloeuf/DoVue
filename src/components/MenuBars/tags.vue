@@ -3,6 +3,8 @@
     A list type of tags prop will be received to display.
     This component is used in both the Note component and the editor component.
 
+    Make sure that each tag is unique, cannot have repeated ones
+
     @Todo
     - Make the note clickable to route user to the Notes view with the selected tag
 */
@@ -11,9 +13,14 @@
   <div v-if="tags && tags.length">
     <!-- <router-link v-for="tag of tags" v-bind:key="tag.id" class="tag"></router-link> -->
     <div v-for="tag in tags" v-bind:key="tag" class="tag">
-      <span @click="open(tag)" class="open_tag">{{ tag }}</span>
+      <span
+        @mouseover="delete_tag[tag] = true"
+        @mouseleave="delete_tag[tag] = false"
+        @click="open(tag)"
+        class="open_tag"
+      >{{ tag }}</span>
       <!-- &times; is the cross button for removing the tag from that note -->
-      <span @click="deleteTag(tag)" class="delete_tag">&times;</span>
+      <span v-if="delete_tag[tag]" @click="deleteTag(tag)" class="delete_tag">&times;</span>
     </div>
   </div>
 </template>
@@ -22,6 +29,11 @@
 export default {
   name: "tags_bar",
   props: ["tags"],
+  data() {
+    const delete_tag = {};
+    this.$props.tags.forEach(tag => (delete_tag[tag] = false));
+    return { delete_tag };
+  },
   methods: {
     open(tag) {
       console.log("open", tag);
@@ -35,11 +47,28 @@ export default {
 
 <style scoped>
 .tag {
-  display: inline;
+  display: inline-block;
   border: 1px solid grey;
   border-radius: 0.5em;
 
   padding: 0.2em 0.5em;
   margin-right: 0.5em;
+}
+
+.open_tag {
+  cursor: pointer;
+  margin-right: 0.5em;
+}
+
+.delete_tag {
+  display: inline-block;
+  height: 1em;
+  line-height: 1em;
+  width: 1em;
+  background-color: #bbb;
+  border-radius: 50%;
+  text-align: center;
+
+  cursor: pointer;
 }
 </style>
