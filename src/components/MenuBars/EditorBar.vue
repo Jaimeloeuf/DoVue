@@ -8,15 +8,23 @@
 
 <template>
   <div class="editor-bar">
-    <span class="archive" @click="closeNsaveNote">Archive</span>
-    <span class="delete" @click="closeNsaveNote">Delete</span>
-    <span class="close" @click="closeNsaveNote">Close</span>
+    <span @click="archive_note">Archive</span>
+    <span @click="delete_note">Delete</span>
+    <span @click="close_note">Close</span>
   </div>
 </template>
 
 <script>
 export default {
-  name: "editorbar"
+  name: "editorbar",
+  props: ["note"],
+  methods: {
+    archive_note() {
+      this.$props.note.archive = true;
+    },
+    delete_note() {},
+    close_note() {}
+  }
 };
 </script>
 
@@ -34,5 +42,9 @@ export default {
   /* grid-template-areas: "archive delete close"; */
 
   gap: 1em;
+}
+
+span {
+  cursor: pointer;
 }
 </style>
