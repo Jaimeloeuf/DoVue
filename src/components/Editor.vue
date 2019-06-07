@@ -14,9 +14,8 @@
       placeholder="Title"
       v-model="note.title"
       class="note-title"
-      :min-height="30"
       :max-height="350"
-      ref="someName"
+      ref="noteTitle"
       @blur.native="onBlurTextarea"
     ></textarea-autosize>
     <br>
@@ -25,9 +24,8 @@
       placeholder="Take a note..."
       v-model="note.text"
       class="note-text"
-      :min-height="30"
-      :max-height="350"
-      ref="someName"
+      ref="noteText"
+      :max-height="400"
       @blur.native="onBlurTextarea"
     ></textarea-autosize>
     <br>
@@ -69,21 +67,20 @@ export default {
   /* Max width for the editor because 80 character word wraps
     Make word wrap customisable? User can set wrap. */
   max-width: 80em;
+
+  /* Center align so that the input/note appears to float in the middle */
+  text-align: center;
 }
 
 .note-title {
   /* Prevent user from resizing the text input area */
   resize: none;
-  /* Make the textarea stretch out to fit fully into the modal's space */
-  width: 100%;
-
-  /* @Todo how to make the box itself enlarge instead of scrolling? */
+  /* Make textarea stretch to almost fully fit the modal with a little space to look like its floating in the middle */
+  width: 95%;
 
   /* Remove border and focus highlighting */
   outline: none;
   border: 0px none;
-  /* Make the text "float" in the middle */
-  margin: 0.5em 0.5em 1em 0.5em;
 
   /* Change the font used to make it like roboto */
 
@@ -94,13 +91,11 @@ export default {
 .note-text {
   /* Prevent user from resizing the text input area */
   resize: none;
-  /* Make the textarea stretch out to fit fully into the modal's space */
-  width: 100%;
+  /* Make textarea stretch to almost fully fit the modal with a little space to look like its floating in the middle */
+  width: 95%;
 
   /* Remove border and focus highlighting */
   outline: none;
   border: 0px none;
-  /* Make the text "float" in the middle */
-  margin: 0.5em 0.5em 1em 0.5em;
 }
 </style>
