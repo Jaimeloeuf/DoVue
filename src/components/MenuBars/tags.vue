@@ -35,9 +35,13 @@ export default {
   name: "tags_bar",
   props: ["tags"],
   data() {
-    const delete_tag = {};
-    this.$props.tags.forEach(tag => (delete_tag[tag] = false));
-    return { delete_tag };
+    // @Todo to update this so that when the labels are changed/updated the delete_tag thing is updated at the same time too
+    if (this.$props.tags) {
+      const delete_tag = {};
+      this.$props.tags.forEach(tag => (delete_tag[tag] = false));
+      return { delete_tag };
+    }
+    // @Todo implement error catcher here
   },
   methods: {
     open(tag) {
