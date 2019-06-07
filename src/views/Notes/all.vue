@@ -30,6 +30,8 @@
 
 <template>
   <div class="notes">
+    <CreateNote/>
+
     <!-- <label>{{ filter.tags ? filter.tags : filter.type }}</label> -->
 
     <ul v-if="notes && notes.length" class="notes">
@@ -43,11 +45,13 @@
 
 <script>
 import { mapState } from "vuex";
+import CreateNote from "@/components/CreateNote.vue";
 import note from "@/components/Note.vue";
 
 export default {
   name: "Notes",
   components: {
+    CreateNote,
     note
   },
   props: {
