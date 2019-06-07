@@ -12,13 +12,15 @@
 <template>
   <div v-if="tags && tags.length">
     <!-- <router-link v-for="tag of tags" v-bind:key="tag.id" class="tag"></router-link> -->
-    <div v-for="tag in tags" v-bind:key="tag" class="tag">
-      <span
-        @mouseover="delete_tag[tag] = true"
-        @mouseleave="delete_tag[tag] = false"
-        @click="open(tag)"
-        class="open_tag"
-      >{{ tag }}</span>
+
+    <!-- Remove the "x" delete button when the mouse leaves the whole tag div. -->
+    <div v-for="tag in tags" v-bind:key="tag" class="tag" @mouseleave="delete_tag[tag] = false">
+      <!-- Show the "x" button on hover by setting the condition for showing "x" to be true -->
+      <span @mouseover="delete_tag[tag] = true" @click="open(tag)" class="open_tag">
+        <!-- When hovering over the tag, reduce the length of the tag displayed to show the "x" button -->
+        {{ delete_tag[tag] ? tag.substr(0, tag.length - 2) : tag }}
+      </span>
+
       <!-- &times; is the cross button for removing the tag from that note -->
       <span v-if="delete_tag[tag]" @click="deleteTag(tag)" class="delete_tag">&times;</span>
     </div>
@@ -48,11 +50,15 @@ export default {
 <style scoped>
 .tag {
   display: inline-block;
-  border: 1px solid grey;
-  border-radius: 0.5em;
+  border-radius: 1em;
+  background-color: rgb(228, 228, 228);
 
-  padding: 0.2em 0.5em;
-  margin-right: 0.5em;
+  padding: 0.1em 0.2em;
+  padding-top: 0em;
+  margin: 0.2em;
+
+  /* Remove the highlight on the text when clicking on it */
+  user-select: none;
 }
 
 .open_tag {
@@ -65,10 +71,6 @@ export default {
   height: 1em;
   line-height: 1em;
   width: 1em;
-  background-color: #bbb;
-  border-radius: 50%;
-  text-align: center;
-
   cursor: pointer;
 }
 </style>
