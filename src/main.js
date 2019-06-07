@@ -8,13 +8,16 @@ import store from './store';
 import VModal from 'vue-js-modal';
 import autofocus from './directives/autofocus';
 import VueUi from '@vue/ui';
-
-
+import VueTextareaAutosize from 'vue-textarea-autosize'
+ 
 // Register VueUI components to use
 Vue.use(VueUi)
 
 // Register the VModal component for other components to use.
 Vue.use(VModal);
+
+// Register the autoresizing textarea box
+Vue.use(VueTextareaAutosize)
 
 Vue.config.productionTip = false
 

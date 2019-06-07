@@ -10,9 +10,26 @@
 <template>
   <div class="editor">
     <!-- {{ id ? id : 'undefined!!' }} -->
-    <textarea v-model="note.title" class="note-title" placeholder="Title"/>
+    <textarea-autosize
+      placeholder="Title"
+      v-model="note.title"
+      class="note-title"
+      :min-height="30"
+      :max-height="350"
+      ref="someName"
+      @blur.native="onBlurTextarea"
+    ></textarea-autosize>
     <br>
-    <textarea v-autofocus v-model="note.text" class="note-text" placeholder="Take a note..."/>
+    <textarea-autosize
+      v-autofocus
+      placeholder="Take a note..."
+      v-model="note.text"
+      class="note-text"
+      :min-height="30"
+      :max-height="350"
+      ref="someName"
+      @blur.native="onBlurTextarea"
+    ></textarea-autosize>
     <br>
     <Tags/>
     <EditorBar class="editor-bar"/>
@@ -79,16 +96,11 @@ export default {
   resize: none;
   /* Make the textarea stretch out to fit fully into the modal's space */
   width: 100%;
-  height: 60em;
+
   /* Remove border and focus highlighting */
   outline: none;
   border: 0px none;
   /* Make the text "float" in the middle */
   margin: 0.5em 0.5em 1em 0.5em;
 }
-
-.editor-bar {
-  position: absolute;
-  bottom: 1em;
-}
-</style>+
+</style>
