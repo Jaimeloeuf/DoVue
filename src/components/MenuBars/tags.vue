@@ -7,6 +7,9 @@
 
     @Todo
     - Make the note clickable to route user to the Notes view with the selected tag
+        - To either use the router-link tag for the tag
+        - Or to use a custom method for opening the notes view for that tag.
+    - Create the custom method for removing the tag from the note.
 */
 
 <template>
