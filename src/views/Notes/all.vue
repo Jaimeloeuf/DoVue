@@ -29,7 +29,7 @@
 */
 
 <template>
-  <div class="notes">
+  <div class="notes" @keydown.c="create_note">
     <CreateNote/>
 
     <!-- <label>{{ filter.tags ? filter.tags : filter.type }}</label> -->
@@ -44,7 +44,14 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+/*  @Demo code below shows mapping state in store to computed property using mapState method
+
+    import { mapState } from "vuex";
+    computed: mapState({
+        notes: state => state.notes
+    }),
+*/
+
 import CreateNote from "@/components/CreateNote.vue";
 import note from "@/components/Note.vue";
 
@@ -53,6 +60,10 @@ export default {
   components: {
     CreateNote,
     note
+  },
+  created() {
+    /* console.log(this.$props);
+    console.log(this.$route.params); */
   },
   props: {
     filter: {
@@ -68,13 +79,16 @@ export default {
     notes() {
       // console.log(this.$props); // Print out the received props object
       return this.$store.state.notes;
+      // return this.$store.getters.archivedNotes;  // @Debug  For testing purposes only
     }
   },
-  //   computed: mapState({
-  //     notes: state => state.notes
-  //   }),
   methods: {
-    openNote() {}
+    create_note() {
+      /*  If the create note component is not opened/focused, then focus on the component.
+          Else ignore the keypress */
+      // @Todo Fix this bug, currently it only detects the keypress and trigger this function in the CreateNote component
+      if (!this.$el.focus) console.log("tp");
+    }
   }
 };
 </script>

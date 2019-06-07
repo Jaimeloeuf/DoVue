@@ -34,13 +34,13 @@ export default {
   components: {
     Editor
   },
-  props: {
-    // The note id which is in the note param will be received as a prop instead
-    id: {
-      type: Number,
-      required: true
-    }
-  },
+//   props: {
+//     // The note id which is in the note param will be received as a prop instead
+//     id: {
+//       type: Number,
+//       required: true
+//     }
+//   },
   mounted() {
     //   Show the modal once it is mounted onto the app
     this.$modal.show("editor-modal");

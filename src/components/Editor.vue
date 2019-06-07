@@ -14,7 +14,7 @@
       placeholder="Title"
       v-model="note.title"
       class="note-title"
-      :max-height="350"
+      :max-height="100"
       ref="noteTitle"
       @blur.native="onBlurTextarea"
     ></textarea-autosize>
@@ -29,20 +29,40 @@
       @blur.native="onBlurTextarea"
     ></textarea-autosize>
     <br>
-    <Tags/>
-    <EditorBar class="editor-bar"/>
+    <!-- Pass the array of tags as props, else an empty array if it there is none -->
+    <!-- <Tags :tags="note.tags ? note.tags : []"/> -->
+    <!-- Technically all notes should have an array of tags, even if it is an empty array -->
+    <Tags :tags="note.tags"/>
+
+    <!-- Pass the note to the editor bar so it can modify the note -->
+    <EditorBar :note="note" class="editor-bar"/>
   </div>
 </template>
 
 <script>
+import Tags from "@/components/MenuBars/tags.vue";
 import EditorBar from "@/components/MenuBars/EditorBar.vue";
 
 export default {
   name: "Editor",
   components: {
+    Tags,
     EditorBar
   },
-  props: ["note"]
+  props: {
+    note: {
+      type: Object,
+      required: true
+    },
+    // @Todo Integrate this autofocus prop to control the v-autofocus directive
+    autofocus: {
+      type: Boolean,
+      default: true
+    }
+  },
+  methods: {
+    onBlurTextarea() {}
+  }
   /*@Notes
     Since Editor component is just a UI component now, the note it edits / opens is passed in as a prop instead.
     Instead of the old way of getting the id from the route to retrieve the note from the store.
