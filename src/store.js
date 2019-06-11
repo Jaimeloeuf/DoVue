@@ -8,6 +8,13 @@
     
     - But doing the above may impact the performance when searching for things like archived notes
     and tag based searching. Beacuse the loop gets more complicated? Perhaps I should uda
+
+    @Todo
+    - Create a count method, to count the different type of notes.
+        - Given an array of notes, it will count it.
+        - Do function chaining. So that using 1 getter method to get the array of notes,
+        - Pass into the count method, to return the length of the given array.
+        - Or should the lenght prototype be used.
 */
 
 import Vue from 'vue'

@@ -3,7 +3,7 @@
 */
 
 <template>
-  <div class="create" id="create" @keydown.esc="close">
+  <div class="create" ref="create" @keydown.esc="close">
     <!-- @Todo the editor comoponent is triggered by a key press.
     the editor component is not created by default, and is only created when activated with the keypress-->
     <Editor :note="note"/>
@@ -48,7 +48,7 @@ export default {
       //   }
 
       // @Todo Remove the focus from the create note component.
-      this.$refs.searchfield.blur();
+      this.$refs.create.blur();
     }
   }
 };
