@@ -42,6 +42,14 @@ export default {
       return { delete_tag };
     }
     // @Todo implement error catcher here
+
+    /*  Empty object must be returned!
+        This is because when create note component uses the editor component and passes in no tags,
+        the still needs to be an empty delete_tag object here because we cannot return nothing from
+        from a vue component's data method.
+        If nothing is returned / none object type is returned, then the template will fail and prevent router navigations.
+    */
+    return {};
   },
   methods: {
     open(tag) {
