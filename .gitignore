@@ -19,3 +19,9 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw?
+
+# Firebase cache and related
+.firebase/
+
+# Vue JS Build files
+build/
