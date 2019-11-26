@@ -16,11 +16,11 @@
 
 <script>
 export default {
-  name: "PublicNavbar",
-  beforeCreate() {
-    // @Todo Debug statement to prevent navbar from being always re-rendered
-    console.log("navbar created");
-  }
+	name: "PublicNavbar",
+	beforeCreate() {
+		// @Todo Debug statement to prevent navbar from being always re-rendered
+		console.log("navbar created");
+	}
 };
 </script>
 

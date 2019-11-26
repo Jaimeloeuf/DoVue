@@ -16,15 +16,15 @@
 
 <script>
 export default {
-  name: "editorbar",
-  props: ["note"],
-  methods: {
-    archive_note() {
-      this.$props.note.archive = true;
-    },
-    delete_note() {},
-    close_note() {}
-  }
+	name: "editorbar",
+	props: ["note"],
+	methods: {
+		archive_note() {
+			this.$props.note.archive = true;
+		},
+		delete_note() {},
+		close_note() {}
+	}
 };
 </script>
 

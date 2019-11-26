@@ -17,53 +17,53 @@
   </div>
 </template>
 
- <script>
+<script>
 import firebase from "firebase";
 
 // Function to map and return a given err.code to a user friendly message
 function error_msg(err) {
-  switch (err.code) {
-    case "auth/wrong-password":
-      return "Invalid password or email.";
-    case "auth/email-already-in-use":
-      return "Email already in use, please log in instead. Reset password if you have forgotten it.";
-    case "auth/network-request-failed":
-      return "Oops, please check your internet connection!";
-    default:
-      return "Ugh, something went wrong! Try again please?";
-  }
+	switch (err.code) {
+	case "auth/wrong-password":
+		return "Invalid password or email.";
+	case "auth/email-already-in-use":
+		return "Email already in use, please log in instead. Reset password if you have forgotten it.";
+	case "auth/network-request-failed":
+		return "Oops, please check your internet connection!";
+	default:
+		return "Ugh, something went wrong! Try again please?";
+	}
 }
 
 export default {
-  name: "signUp",
-  data() {
-    return {
-      email: "",
-      password: "",
-      error_msg: ""
-    };
-  },
-  methods: {
-    signUp: function() {
-      // After signup, user will be automatically signed in, thus redirect to the notes view
-      firebase
-        .auth()
-        .createUserWithEmailAndPassword(this.email, this.password)
-        .then(usr => {
-          // Extract the userID out from the user's email address
-          const name = usr.user.email.split("@")[0];
-          // Route to the user's home page, after login
-          this.$router.replace({ name: "user-home", params: { user: name } });
-        })
-        .catch(err => {
-          // @Debug Log the full error message from firebase for debug purposes only
-          console.log(err.message);
+	name: "signUp",
+	data() {
+		return {
+			email: "",
+			password: "",
+			error_msg: ""
+		};
+	},
+	methods: {
+		signUp: function() {
+			// After signup, user will be automatically signed in, thus redirect to the notes view
+			firebase
+				.auth()
+				.createUserWithEmailAndPassword(this.email, this.password)
+				.then(usr => {
+					// Extract the userID out from the user's email address
+					const name = usr.user.email.split("@")[0];
+					// Route to the user's home page, after login
+					this.$router.replace({ name: "user-home", params: { user: name } });
+				})
+				.catch(err => {
+					// @Debug Log the full error message from firebase for debug purposes only
+					console.log(err.message);
 
-          // Set the message into the error box to show user the error
-          this.error_msg = error_msg(err);
-        });
-    }
-  }
+					// Set the message into the error box to show user the error
+					this.error_msg = error_msg(err);
+				});
+		}
+	}
 };
 </script>
 

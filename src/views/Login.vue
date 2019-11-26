@@ -24,45 +24,45 @@ import firebase from "firebase";
 
 // Function to map and return a given err.code to a user friendly message
 function error_msg(err) {
-  switch (err.code) {
-    case "auth/wrong-password":
-      return "Invalid password or email.";
-    case "auth/network-request-failed":
-      return "Oops, please check your internet connection!";
-    default:
-      return "Ugh, something went wrong! Try again please?";
-  }
+	switch (err.code) {
+	case "auth/wrong-password":
+		return "Invalid password or email.";
+	case "auth/network-request-failed":
+		return "Oops, please check your internet connection!";
+	default:
+		return "Ugh, something went wrong! Try again please?";
+	}
 }
 
 export default {
-  name: "login",
-  data() {
-    return {
-      email: "",
-      password: "",
-      error_msg: ""
-    };
-  },
-  methods: {
-    login() {
-      firebase
-        .auth()
-        .signInWithEmailAndPassword(this.email, this.password)
-        .then(usr => {
-          // Extract the userID out from the user's email address
-          const name = usr.user.email.split("@")[0];
-          // Route to the user's home page, after login
-          this.$router.replace({ name: "user-home", params: { user: name } });
-        })
-        .catch(err => {
-          // @Debug Log the full error message from firebase for debug purposes only
-          console.log(err.message);
+	name: "login",
+	data() {
+		return {
+			email: "",
+			password: "",
+			error_msg: ""
+		};
+	},
+	methods: {
+		login() {
+			firebase
+				.auth()
+				.signInWithEmailAndPassword(this.email, this.password)
+				.then(usr => {
+					// Extract the userID out from the user's email address
+					const name = usr.user.email.split("@")[0];
+					// Route to the user's home page, after login
+					this.$router.replace({ name: "user-home", params: { user: name } });
+				})
+				.catch(err => {
+					// @Debug Log the full error message from firebase for debug purposes only
+					console.log(err.message);
 
-          // Set the message into the error box to show user the error
-          this.error_msg = error_msg(err);
-        });
-    }
-  }
+					// Set the message into the error box to show user the error
+					this.error_msg = error_msg(err);
+				});
+		}
+	}
 };
 </script>
 

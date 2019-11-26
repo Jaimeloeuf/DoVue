@@ -5,6 +5,7 @@
     - On click, trigger a function that will change the route to the route of the note, and show the EditorModal with the selected note in it using props passed into the editor component.
     - Add line numbers to the editor and allow the user to toggle it on and off
     - Add a little "last edited date" at the bottom right corner of the editor
+    - How to move user's cursor / text position programmatically? E.g. I want the cursor to be at the top of the note.
 */
 
 <template>
@@ -44,26 +45,26 @@ import Tags from "@/components/MenuBars/tags.vue";
 import EditorBar from "@/components/MenuBars/EditorBar.vue";
 
 export default {
-  name: "Editor",
-  components: {
-    Tags,
-    EditorBar
-  },
-  props: {
-    note: {
-      type: Object,
-      required: true
-    },
-    // @Todo Integrate this autofocus prop to control the v-autofocus directive
-    autofocus: {
-      type: Boolean,
-      default: true
-    }
-  },
-  methods: {
-    onBlurTextarea() {}
-  }
-  /*@Notes
+	name: "Editor",
+	components: {
+		Tags,
+		EditorBar
+	},
+	props: {
+		note: {
+			type: Object,
+			required: true
+		},
+		// @Todo Integrate this autofocus prop to control the v-autofocus directive
+		autofocus: {
+			type: Boolean,
+			default: true
+		}
+	},
+	methods: {
+		onBlurTextarea() {}
+	}
+	/*@Notes
     Since Editor component is just a UI component now, the note it edits / opens is passed in as a prop instead.
     Instead of the old way of getting the id from the route to retrieve the note from the store.
     

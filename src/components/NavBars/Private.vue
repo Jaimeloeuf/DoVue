@@ -33,17 +33,17 @@ import LogoutBtn from "@/components/LogoutBtn.vue";
 import SearchBox from "@/components/SearchBox.vue";
 
 export default {
-  name: "NotesNavbar",
-  components: {
-    SearchBox,
-    LogoutBtn,
-    AboutModal,
-    HelpModal
-  },
-  beforeCreate() {
-    // @Todo Debug statement to prevent navbar from being always re-rendered
-    console.log("navbar created");
-  }
+	name: "NotesNavbar",
+	components: {
+		SearchBox,
+		LogoutBtn,
+		AboutModal,
+		HelpModal
+	},
+	beforeCreate() {
+		// @Todo Debug statement to prevent navbar from being always re-rendered
+		console.log("navbar created");
+	}
 };
 </script>
 

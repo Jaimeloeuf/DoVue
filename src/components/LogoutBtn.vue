@@ -6,16 +6,16 @@
 import firebase from "firebase";
 
 export default {
-  name: "LogoutBtn",
-  methods: {
-    logout: function() {
-      // Signout the current user and redirect to login page afterwards.
-      firebase
-        .auth()
-        .signOut()
-        .then(() => this.$router.replace({ name: "login" }));
-    }
-  }
+	name: "LogoutBtn",
+	methods: {
+		logout: function() {
+			// Signout the current user and redirect to login page afterwards.
+			firebase
+				.auth()
+				.signOut()
+				.then(() => this.$router.replace({ name: "login" }));
+		}
+	}
 };
 </script>
 

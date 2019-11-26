@@ -10,5 +10,5 @@
         private: Only accessible if user is currently authenticated.
 */
 export default Object.freeze({
-    "public": 1, "public_only": 2, "private": 3
+	"public": 1, "public_only": 2, "private": 3
 });

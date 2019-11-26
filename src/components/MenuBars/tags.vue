@@ -32,33 +32,37 @@
 
 <script>
 export default {
-  name: "tags_bar",
-  props: ["tags"],
-  data() {
-    // @Todo to update this so that when the labels are changed/updated the delete_tag thing is updated at the same time too
-    if (this.$props.tags) {
-      const delete_tag = {};
-      this.$props.tags.forEach(tag => (delete_tag[tag] = false));
-      return { delete_tag };
-    }
-    // @Todo implement error catcher here
+	name: "tags_bar",
+	props: ["tags"],
+	data() {
+		// @Todo to update this so that when the labels are changed/updated the delete_tag thing is updated at the same time too
+		if (this.$props.tags) {
+			const delete_tag = {};
+			this.$props.tags.forEach(tag => (delete_tag[tag] = false));
+			return { delete_tag };
+		}
+		// @Todo implement error catcher here
 
-    /*  Empty object must be returned!
+		/*  Empty object must be returned!
         This is because when create note component uses the editor component and passes in no tags,
         the still needs to be an empty delete_tag object here because we cannot return nothing from
         from a vue component's data method.
         If nothing is returned / none object type is returned, then the template will fail and prevent router navigations.
+
+        If no tags is given, the template will not render due to the v-if condition on the root level of this template.
+        However since data function is expected to run and return something of object type before the check is even performed,
+        we will need to return an empty item to prevent breaking the process.
     */
-    return {};
-  },
-  methods: {
-    open(tag) {
-      console.log("open", tag);
-    },
-    deleteTag(tag) {
-      console.log("delete", tag);
-    }
-  }
+		return {};
+	},
+	methods: {
+		open(tag) {
+			console.log("open", tag);
+		},
+		deleteTag(tag) {
+			console.log("delete", tag);
+		}
+	}
 };
 </script>
 

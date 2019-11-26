@@ -33,26 +33,26 @@
 
 <script>
 export default {
-  name: "SearchBox",
-  data() {
-    return {
-      search_string: ""
-    };
-  },
-  methods: {
-    close() {
-      /* Methods to run to close the search box and its generated results */
-      // Clear the search string
-      this.search_string = "";
-      // Remove the focus on the input box
-      this.$refs.searchfield.blur();
+	name: "SearchBox",
+	data() {
+		return {
+			search_string: ""
+		};
+	},
+	methods: {
+		close() {
+			/* Methods to run to close the search box and its generated results */
+			// Clear the search string
+			this.search_string = "";
+			// Remove the focus on the input box
+			this.$refs.searchfield.blur();
 
-      // @Todo Remove search results
-    },
-    btnClick() {
-      this.$refs.searchfield.focus();
-    }
-  }
+			// @Todo Remove search results
+		},
+		btnClick() {
+			this.$refs.searchfield.focus();
+		}
+	}
 };
 </script>
 

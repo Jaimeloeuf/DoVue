@@ -32,23 +32,23 @@ import NoteBar from "@/components/MenuBars/note_management.vue";
 import tags from "@/components/MenuBars/tags.vue";
 
 export default {
-  name: "note",
-  components: {
-    NoteBar,
-    tags
-  },
-  props: {
-    note: {
-      type: Object,
-      required: true
-    }
-  },
-  methods: {
-    openNote(id) {
-      // Method to open a note using the note's id
-      this.$router.push({ name: "note-editor", params: { id } });
-    }
-  }
+	name: "note",
+	components: {
+		NoteBar,
+		tags
+	},
+	props: {
+		note: {
+			type: Object,
+			required: true
+		}
+	},
+	methods: {
+		openNote(id) {
+			// Method to open a note using the note's id
+			this.$router.push({ name: "note-editor", params: { id } });
+		}
+	}
 };
 </script>
 

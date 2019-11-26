@@ -17,27 +17,27 @@
         - Or should the lenght prototype be used.
 */
 
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from "vue";
+import Vuex from "vuex";
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 export default new Vuex.Store({
-    state: {
-        user: {},
-        notes: require('./mock_notes.json')
-    },
-    getters: {
-        get: (state) => (id) => state.notes.filter((note) => note.id == id)[0],
-        noteByID: (state) => (id) => state.notes.filter((note) => note.id == id)[0],
-        tagged: (state) => (filter_tag) => state.notes.filter(note => note.tags.some(tag => tag === filter_tag)),
-        archivedNotes: (state) => state.notes.filter((note) => note.archived),
-        deletedNotes: (state) => state.notes.filter((note) => note.deleted),
-    },
-    mutations: {
+	state: {
+		user: {},
+		notes: require("./mock_notes.json")
+	},
+	getters: {
+		get: (state) => (id) => state.notes.filter((note) => note.id == id)[0],
+		noteByID: (state) => (id) => state.notes.filter((note) => note.id == id)[0],
+		tagged: (state) => (filter_tag) => state.notes.filter(note => note.tags.some(tag => tag === filter_tag)),
+		archivedNotes: (state) => state.notes.filter((note) => note.archived),
+		deletedNotes: (state) => state.notes.filter((note) => note.deleted),
+	},
+	mutations: {
 
-    },
-    actions: {
+	},
+	actions: {
 
-    }
-})
+	}
+});

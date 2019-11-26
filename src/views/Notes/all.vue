@@ -56,40 +56,40 @@ import CreateNote from "@/components/CreateNote.vue";
 import note from "@/components/Note.vue";
 
 export default {
-  name: "Notes",
-  components: {
-    CreateNote,
-    note
-  },
-  created() {
-    /* console.log(this.$props);
+	name: "Notes",
+	components: {
+		CreateNote,
+		note
+	},
+	created() {
+		/* console.log(this.$props);
     console.log(this.$route.params); */
-  },
-  props: {
-    filter: {
-      type: Object
-      // Filter off nothing by default making this view display all notes by default.
-    },
-    sort: {
-      type: Object,
-      default: undefined
-    }
-  },
-  computed: {
-    notes() {
-      // console.log(this.$props); // Print out the received props object
-      return this.$store.state.notes;
-      // return this.$store.getters.archivedNotes;  // @Debug  For testing purposes only
-    }
-  },
-  methods: {
-    create_note() {
-      /*  If the create note component is not opened/focused, then focus on the component.
+	},
+	props: {
+		filter: {
+			type: Object
+			// Filter off nothing by default making this view display all notes by default.
+		},
+		sort: {
+			type: Object,
+			default: undefined
+		}
+	},
+	computed: {
+		notes() {
+			// console.log(this.$props); // Print out the received props object
+			return this.$store.state.notes;
+			// return this.$store.getters.archivedNotes;  // @Debug  For testing purposes only
+		}
+	},
+	methods: {
+		create_note() {
+			/*  If the create note component is not opened/focused, then focus on the component.
           Else ignore the keypress */
-      // @Todo Fix this bug, currently it only detects the keypress and trigger this function in the CreateNote component
-      if (!this.$el.focus) console.log("tp");
-    }
-  }
+			// @Todo Fix this bug, currently it only detects the keypress and trigger this function in the CreateNote component
+			if (!this.$el.focus) console.log("tp");
+		}
+	}
 };
 </script>
 

@@ -32,7 +32,7 @@
 
 <script>
 export default {
-  name: "AboutModal"
+	name: "AboutModal"
 };
 </script>
 

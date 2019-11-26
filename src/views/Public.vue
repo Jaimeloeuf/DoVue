@@ -20,10 +20,10 @@
 import PublicNavbar from "@/components/NavBars/PublicNavbar.vue";
 
 export default {
-  name: "Public",
-  components: {
-    PublicNavbar
-  }
+	name: "Public",
+	components: {
+		PublicNavbar
+	}
 };
 </script>
 

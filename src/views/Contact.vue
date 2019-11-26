@@ -34,19 +34,19 @@
 // import firebase from "firebase";
 
 export default {
-  name: "contact",
-  data() {
-    return {
-      name: "",
-      email: "",
-      phone: "",
-      details: "",
-      error_msg: ""
-    };
-  },
-  methods: {
-    postContactDetails: function() {}
-  }
+	name: "contact",
+	data() {
+		return {
+			name: "",
+			email: "",
+			phone: "",
+			details: "",
+			error_msg: ""
+		};
+	},
+	methods: {
+		postContactDetails: function() {}
+	}
 };
 </script>
 

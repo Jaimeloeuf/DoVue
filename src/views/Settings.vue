@@ -40,16 +40,16 @@
 import sideBar from "@/components/NavBars/Settings.vue";
 
 export default {
-  name: "Settings",
-  components: {
-    sideBar
-  },
-  data() {
-    return {};
-  },
-  methods: {
-    save() {}
-  }
+	name: "Settings",
+	components: {
+		sideBar
+	},
+	data() {
+		return {};
+	},
+	methods: {
+		save() {}
+	}
 };
 </script>
 
