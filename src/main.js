@@ -9,7 +9,7 @@ import VModal from "vue-js-modal";
 import autofocus from "./directives/autofocus";
 import VueUi from "@vue/ui";
 import VueTextareaAutosize from "vue-textarea-autosize";
- 
+
 // Register VueUI components to use
 Vue.use(VueUi);
 
@@ -24,18 +24,17 @@ Vue.config.productionTip = false;
 // Register global custom directive called `v-autofocus`
 Vue.directive("autofocus", autofocus);
 
-
 // firebaseConfig auto generated in project settings
 firebase.initializeApp({
-	apiKey: "AIzaSyBLNzTnm890qIYStxM5_nljMh3CoxkVyDk",
-	authDomain: "dovue-c1892.firebaseapp.com",
-	databaseURL: "https://dovue-c1892.firebaseio.com",
-	projectId: "dovue-c1892",
-	storageBucket: "dovue-c1892.appspot.com",
-	messagingSenderId: "9521872878",
-	appId: "1:9521872878:web:e90626e43f23617a"
+	apiKey: "AIzaSyALVp9ns7fXBga4L3t5hVvpwl6_tG5P2_A",
+	authDomain: "dovue-web.firebaseapp.com",
+	databaseURL: "https://dovue-web.firebaseio.com",
+	projectId: "dovue-web",
+	storageBucket: "dovue-web.appspot.com",
+	messagingSenderId: "1095262940377",
+	appId: "1:1095262940377:web:532923f412699df5dba2c8",
+	measurementId: "G-52DDJ8E2P6"
 });
-
 
 // Wait for firebase to finish initialization before creating the app.
 // So that the router navigation wont break due to invalid auth
