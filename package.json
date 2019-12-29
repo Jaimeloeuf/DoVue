@@ -10,8 +10,10 @@
     "scripts": {
         "serve": "vue-cli-service serve",
         "build": "vue-cli-service build",
-        "lint": "vue-cli-service lint",
-        "lint:js": "./node_modules/.bin/eslint --ignore-path .gitignore --fix **/*.js"
+        "lint:vue": "vue-cli-service lint",
+        "lint:js": "./node_modules/.bin/eslint --ignore-path .gitignore --fix **/*.js",
+        "deploy_all": "npm run build && firebase deploy",
+        "deploy": "npm run deploy_all -- --only hosting"
     },
     "dependencies": {
         "@vue/ui": "^0.9.2",
